@@ -180,6 +180,15 @@
   .heroNote { right: 8px; bottom: 3px; min-width: 0; max-width: 215px; }
   .customTrip { display: block; width: calc(100% - 24px); margin-bottom: 72px; padding: 43px 27px; border-radius: 25px; }
   .customTrip > a { justify-content: space-between; margin-top: 27px; }
+  .eyebrow,
+  .heroNote span,
+  .customTrip span { font-size: 12px; }
+  .heroCopy > p,
+  .customTrip p { font-size: 16px; }
+  .heroActions a,
+  .heroActions span,
+  .heroNote strong,
+  .customTrip > a { font-size: 14px; }
 }
 
 @media (max-width: 430px) {

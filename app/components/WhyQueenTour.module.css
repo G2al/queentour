@@ -272,7 +272,7 @@
 
   .intro p {
     margin-top: 21px;
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .button {
@@ -291,6 +291,26 @@
     min-height: 124px;
     padding: 21px 44px 21px 18px;
   }
+
+  .eyebrow {
+    font-size: 11px;
+  }
+
+  .button {
+    font-size: 13px;
+  }
+
+  .cardNumber {
+    font-size: 10px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 410px) {
@@ -304,7 +324,7 @@
   }
 
   .card p {
-    font-size: 9px;
+    font-size: 12px;
   }
 }
 

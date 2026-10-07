@@ -528,12 +528,12 @@
   }
 
   .title {
-    font-size: 25px;
+    font-size: 29px;
   }
 
   .subtitle {
     max-width: 220px;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .controls {
@@ -556,6 +556,35 @@
 
   .cardBody {
     padding-inline: 5px;
+  }
+
+  .cardText h3 {
+    font-size: 18px;
+  }
+
+  .cardText p,
+  .rating {
+    font-size: 12px;
+  }
+
+  .modalEyebrow,
+  .packageFacts span,
+  .included > span {
+    font-size: 11px;
+  }
+
+  .modalLocation,
+  .packageFacts strong,
+  .quoteButton {
+    font-size: 14px;
+  }
+
+  .modalDescription {
+    font-size: 16px;
+  }
+
+  .included li {
+    font-size: 14px;
   }
 }
 

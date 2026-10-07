@@ -526,6 +526,25 @@
   .resultsBar label > span { display: none; }
   .grid { grid-template-columns: 1fr; gap: 18px; }
   .imageWrap { height: 245px; }
+  .eyebrow,
+  .filterHeading > div > span,
+  .field > span,
+  .cardHeading > div > span,
+  .reviewCount,
+  .price span,
+  .price small { font-size: 11px; }
+  .headingRow > p,
+  .resultsBar p,
+  .resultsBar label,
+  .resultsBar select,
+  .resetButton,
+  .facts span,
+  .detailsButton { font-size: 14px; }
+  .field select,
+  .inputWrap,
+  .inputWrap input { font-size: 16px; }
+  .description { font-size: 15px; }
+  .mobileFilterToggle { font-size: 14px; }
 }
 
 @media (max-width: 430px) {

@@ -278,9 +278,9 @@
   }
 
   .airplane {
-    top: 22px;
-    right: -195px;
-    width: 650px;
+    top: 30px;
+    right: -170px;
+    width: 520px;
     max-width: none;
   }
 
@@ -294,7 +294,7 @@
 
   .eyebrow {
     margin-bottom: 11px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .title {
@@ -308,6 +308,7 @@
   .primaryAction {
     min-height: 46px;
     padding: 0 20px;
+    font-size: 14px;
   }
 
   .roundAction {
@@ -326,6 +327,18 @@
     display: none;
   }
 
+  .moreHeading {
+    font-size: 17px;
+  }
+
+  .cardCopy strong {
+    font-size: 14px;
+  }
+
+  .cardCopy span {
+    font-size: 12px;
+  }
+
   .cardDetails {
     margin-top: 17px;
   }
@@ -338,9 +351,9 @@
   }
 
   .airplane {
-    top: 34px;
-    right: -180px;
-    width: 590px;
+    top: 38px;
+    right: -165px;
+    width: 480px;
   }
 
   .content {

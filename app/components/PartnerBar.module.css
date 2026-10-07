@@ -109,7 +109,10 @@
 
 .partnerTrack {
   display: flex;
+  flex: 0 0 auto;
   width: max-content;
+  backface-visibility: hidden;
+  will-change: transform;
   animation: partnerScroll 26s linear infinite;
 }
 
@@ -159,7 +162,7 @@
   }
 
   to {
-    transform: translateX(-33.333333%);
+    transform: translate3d(-33.333333%, 0, 0);
   }
 }
 
@@ -200,23 +203,40 @@
 
   .partners {
     display: block;
+    contain: layout paint;
   }
 
   .partnerGroup {
-    gap: 30px;
-    padding-right: 30px;
+    gap: 24px;
+    padding-right: 24px;
   }
 
   .partner {
-    flex-basis: 125px;
+    width: 132px;
+    min-width: 132px;
+    flex-basis: 132px;
   }
 
   .partner img {
-    max-width: 125px;
-    max-height: 27px;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 30px;
+    max-height: none;
+    object-fit: contain;
   }
 
   .partner:nth-child(2) img {
-    max-width: 140px;
+    max-width: none;
+  }
+
+  .followLabel {
+    font-size: 13px;
+  }
+}
+
+@media (hover: none) {
+  .partners:hover .partnerTrack {
+    animation-play-state: running;
   }
 }

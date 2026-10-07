@@ -277,7 +277,7 @@
 
   .heading p {
     max-width: 340px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .steps {
@@ -337,6 +337,19 @@
   .featuredContent {
     min-height: 420px;
     padding: 145px 30px 32px;
+  }
+
+  .eyebrow,
+  .number {
+    font-size: 11px;
+  }
+
+  .featuredContent p {
+    font-size: 14px;
+  }
+
+  .learnMore {
+    font-size: 12px;
   }
 }
 

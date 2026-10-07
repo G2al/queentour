@@ -406,6 +406,35 @@
   .panel {
     min-height: 410px;
   }
+
+  .eyebrow,
+  .step,
+  .panelHeading span,
+  .field > span,
+  .summary dt {
+    font-size: 11px;
+  }
+
+  .intro p,
+  .nextButton,
+  .submitButton,
+  .backButton {
+    font-size: 14px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+  }
+
+  .summary dd {
+    font-size: 13px;
+  }
+
+  .requestNote {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 430px) {

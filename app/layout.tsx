@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: "Queen Tour | Tour Operator ad Aversa",
   description:
     "Queen Tour, tour operator ad Aversa in provincia di Caserta. Scopri i nostri pacchetti viaggio e parti con noi.",
+  icons: {
+    icon: {
+      url: "/images/favicon-queentour.png",
+      type: "image/png",
+    },
+    shortcut: "/images/favicon-queentour.png",
+    apple: "/images/favicon-queentour.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

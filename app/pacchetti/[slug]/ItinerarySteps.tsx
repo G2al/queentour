@@ -47,14 +47,14 @@ export default function ItinerarySteps({ items }: { items: ItineraryItem[] }) {
     <div
       className={`${styles.timeline} ${hasStarted ? styles.timelineStarted : ""}`}
       ref={timelineRef}
-      style={{ "--timeline-duration": `${Math.max(items.length * 1.65, 2)}s` } as CSSProperties}
     >
       {items.map((item, index) => {
         const isActive = activeStep === index;
+        const isCompleted = activeStep !== null && index < activeStep;
 
         return (
           <article
-            className={`${styles.timelineStep} ${isActive ? styles.timelineStepActive : ""}`}
+            className={`${styles.timelineStep} ${isActive ? styles.timelineStepActive : ""} ${isCompleted ? styles.timelineStepCompleted : ""}`}
             key={item.day}
             style={{ "--step-index": index } as CSSProperties}
           >

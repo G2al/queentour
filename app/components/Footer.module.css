@@ -214,6 +214,23 @@
   .bottom span::before {
     display: none;
   }
+
+  .brand p {
+    font-size: 15px;
+  }
+
+  .column h2 {
+    font-size: 17px;
+  }
+
+  .column a,
+  .column > span {
+    font-size: 14px;
+  }
+
+  .bottom {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 390px) {

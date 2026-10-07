@@ -10,9 +10,15 @@ import styles from "./Header.module.css";
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Pacchetti", href: "/pacchetti" },
-  { label: "Chi siamo", href: "/#chi-siamo" },
-  { label: "Contatti", href: "/#contatti" },
+  { label: "Chi siamo", href: "/chi-siamo" },
+  { label: "Contatti", href: "/contatti" },
 ];
+
+function isActiveRoute(pathname: string, href: string) {
+  if (href.includes("#")) return false;
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -43,7 +49,7 @@ export default function Header() {
 
         <nav className={styles.desktopNav} aria-label="Navigazione principale">
           {navigation.map((item) => {
-            const isActive = item.href === "/" ? pathname === "/" : item.href === "/pacchetti" && pathname.startsWith("/pacchetti");
+            const isActive = isActiveRoute(pathname, item.href);
 
             return (
               <Link
@@ -91,7 +97,7 @@ export default function Header() {
             aria-hidden={!menuOpen}
           >
             {navigation.map((item) => {
-              const isActive = item.href === "/" ? pathname === "/" : item.href === "/pacchetti" && pathname.startsWith("/pacchetti");
+              const isActive = isActiveRoute(pathname, item.href);
 
               return (
                 <Link

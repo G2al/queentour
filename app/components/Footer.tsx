@@ -52,16 +52,16 @@ export default function Footer() {
 
         <nav className={styles.column} aria-label="Azienda">
           <h2>Azienda</h2>
-          <Link href="/#chi-siamo">Chi siamo</Link>
+          <Link href="/chi-siamo">Chi siamo</Link>
           <Link href="/pacchetti">Pacchetti</Link>
           <Link href="/#recensioni">Recensioni</Link>
-          <Link href="/#contatti">Contatti</Link>
+          <Link href="/contatti">Contatti</Link>
         </nav>
 
         <nav className={styles.column} aria-label="Risorse">
           <h2>Risorse</h2>
-          <Link href="/#chi-siamo">Viaggi su misura</Link>
-          <Link href="/#chi-siamo">Assistenza dedicata</Link>
+          <Link href="/chi-siamo#metodo">Viaggi su misura</Link>
+          <Link href="/chi-siamo#valori">Assistenza dedicata</Link>
           <Link href="/pacchetti">Destinazioni</Link>
           <Link href="/#come-funziona">Come prenotare</Link>
         </nav>

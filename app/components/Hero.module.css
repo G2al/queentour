@@ -1,0 +1,362 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  width: calc(100% - clamp(32px, 5vw, 96px));
+  height: clamp(520px, calc(100svh - 210px), 820px);
+  min-height: 520px;
+  margin: 0 auto;
+  overflow: visible;
+  border-radius: 34px;
+  background: #bfeaff;
+}
+
+.sky {
+  z-index: -3;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.atmosphere {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgb(235 249 255 / 46%) 0%, transparent 47%),
+    linear-gradient(180deg, rgb(255 255 255 / 8%) 55%, rgb(230 248 255 / 22%) 100%);
+}
+
+.airplane {
+  position: absolute;
+  z-index: -1;
+  top: -8%;
+  right: -21%;
+  width: 76%;
+  height: auto;
+  filter: drop-shadow(0 24px 24px rgb(34 91 126 / 18%));
+  pointer-events: none;
+  user-select: none;
+}
+
+.content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: clamp(58px, 7vw, 112px);
+  width: min(36vw, 540px);
+  transform: translateY(-50%);
+}
+
+.eyebrow {
+  margin: 0 0 15px;
+  color: #15191d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #080b0d;
+  font-size: clamp(52px, 4.35vw, 72px);
+  font-weight: 750;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.primaryAction,
+.roundAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.primaryAction {
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #169fff, #087ee8);
+  box-shadow: 0 10px 22px rgb(3 126 230 / 24%);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.roundAction {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(255 255 255 / 88%);
+  border-radius: 50%;
+  color: #0a88ee;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 8px 20px rgb(59 137 179 / 13%);
+}
+
+.roundAction svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+}
+
+.primaryAction:hover,
+.roundAction:hover {
+  transform: translateY(-2px);
+}
+
+.primaryAction:hover {
+  box-shadow: 0 14px 28px rgb(3 126 230 / 34%);
+}
+
+.roundAction:hover {
+  background: #ffffff;
+  box-shadow: 0 12px 25px rgb(59 137 179 / 20%);
+}
+
+.primaryAction:focus-visible,
+.roundAction:focus-visible,
+.moreHeading:focus-visible {
+  outline: 3px solid rgb(7 136 245 / 30%);
+  outline-offset: 4px;
+}
+
+.moreCard {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(390px, 31vw, 520px);
+  min-height: clamp(164px, 13vw, 205px);
+  padding: clamp(27px, 2.1vw, 35px) clamp(32px, 2.5vw, 42px);
+  border-radius: 42px 0 0;
+  background: rgb(255 255 255 / 96%);
+  box-shadow: -12px -12px 35px rgb(78 151 190 / 7%);
+}
+
+.moreCard::before {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  width: 46px;
+  height: 30px;
+  border-radius: 0 0 28px;
+  box-shadow: 21px 13px 0 10px rgb(255 255 255 / 96%);
+  content: "";
+}
+
+.moreHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #111519;
+  font-size: 15px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.moreHeading svg {
+  width: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition: transform 180ms ease;
+}
+
+.moreHeading:hover svg {
+  transform: translateX(4px);
+}
+
+.cardDetails {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 23px;
+}
+
+.thumbnails {
+  display: flex;
+  min-width: 118px;
+}
+
+.thumbnail {
+  position: relative;
+  display: block;
+  width: 47px;
+  height: 47px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #dff4ff;
+  box-shadow: 0 4px 10px rgb(39 113 151 / 12%);
+}
+
+.thumbnail + .thumbnail {
+  margin-left: -12px;
+}
+
+.thumbnail img {
+  object-fit: cover;
+}
+
+.thumbnail:nth-child(2) img {
+  object-position: 30% center;
+}
+
+.brandThumbnail {
+  background: #edf8ff;
+}
+
+.brandThumbnail img {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardCopy strong {
+  color: #111519;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.cardCopy span {
+  color: #707a80;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    height: 560px;
+  }
+
+  .airplane {
+    top: -2%;
+    right: -26%;
+    width: 84%;
+  }
+
+  .content {
+    left: 58px;
+    width: 390px;
+  }
+
+  .title {
+    font-size: 49px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    width: calc(100% - 24px);
+    height: 690px;
+    min-height: 690px;
+    border-radius: 26px;
+  }
+
+  .atmosphere {
+    background:
+      linear-gradient(180deg, transparent 15%, rgb(229 247 255 / 15%) 36%, rgb(231 248 255 / 80%) 62%),
+      linear-gradient(90deg, rgb(241 251 255 / 30%), transparent);
+  }
+
+  .airplane {
+    top: 22px;
+    right: -195px;
+    width: 650px;
+    max-width: none;
+  }
+
+  .content {
+    top: 342px;
+    right: 26px;
+    left: 26px;
+    width: auto;
+    transform: none;
+  }
+
+  .eyebrow {
+    margin-bottom: 11px;
+    font-size: 9px;
+  }
+
+  .title {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+
+  .actions {
+    margin-top: 21px;
+  }
+
+  .primaryAction {
+    min-height: 46px;
+    padding: 0 20px;
+  }
+
+  .roundAction {
+    width: 46px;
+    height: 46px;
+  }
+
+  .moreCard {
+    width: 100%;
+    min-height: 143px;
+    padding: 21px 25px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .moreCard::before {
+    display: none;
+  }
+
+  .cardDetails {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    height: 670px;
+    min-height: 670px;
+  }
+
+  .airplane {
+    top: 34px;
+    right: -180px;
+    width: 590px;
+  }
+
+  .content {
+    top: 315px;
+  }
+
+  .moreCard {
+    padding-inline: 20px;
+  }
+
+  .thumbnails {
+    min-width: 100px;
+  }
+
+  .thumbnail {
+    width: 42px;
+    height: 42px;
+  }
+}

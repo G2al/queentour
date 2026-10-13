@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "Pacchetti", href: "/pacchetti" },
+  { label: "Egitto", href: "/pacchetti" },
   { label: "Chi siamo", href: "/chi-siamo" },
   { label: "Contatti", href: "/contatti" },
 ];
@@ -39,10 +39,10 @@ export default function Header() {
         <Link className={styles.logoLink} href="/" aria-label="Queen Tour - Home">
           <Image
             className={styles.logo}
-            src="/images/logo-qeentour-primary.png"
+            src="/images/logo-queentour.png"
             alt="Queen Tour"
-            width={1858}
-            height={568}
+            width={1426}
+            height={1103}
             priority
           />
         </Link>

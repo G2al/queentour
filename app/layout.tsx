@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Queen Tour | Tour Operator ad Aversa",
+  title: "Queen Tour | Specialisti Egitto e Hurghada",
   description:
-    "Queen Tour, tour operator ad Aversa in provincia di Caserta. Scopri i nostri pacchetti viaggio e parti con noi.",
+    "Queen Tour è specializzata in servizi Solo Land in Egitto: hotel, trasferimenti ed escursioni a Hurghada e sul Mar Rosso.",
   icons: {
     icon: {
       url: "/images/favicon-queentour.png",

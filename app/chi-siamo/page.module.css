@@ -15,15 +15,15 @@
   border-radius: 34px;
   background:
     radial-gradient(circle at 3% 5%, rgb(255 255 255 / 72%), transparent 28%),
-    radial-gradient(circle at 53% 108%, rgb(32 161 244 / 17%), transparent 33%),
-    linear-gradient(135deg, #effaff 0%, #d9f2ff 52%, #c9ebfc 100%);
+    radial-gradient(circle at 53% 108%, rgb(var(--brand-bronze-rgb) / 17%), transparent 33%),
+    linear-gradient(135deg, var(--brand-cream-soft) 0%, var(--brand-cream) 52%, #e8d8bd 100%);
   animation: heroEnter 720ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .hero::before,
 .hero::after {
   position: absolute;
-  border: 1px solid rgb(7 136 245 / 10%);
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 10%);
   border-radius: 50%;
   content: "";
   pointer-events: none;
@@ -65,8 +65,8 @@
 }
 
 .eyebrow {
-  border: 1px solid rgb(7 136 245 / 18%);
-  color: #0875cb;
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 18%);
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 54%);
 }
 
@@ -82,7 +82,7 @@
 
 .heroCopy h1 span {
   display: block;
-  color: #0788f5;
+  color: var(--brand-bronze);
 }
 
 .heroCopy > p {
@@ -116,14 +116,14 @@
   gap: 22px;
   padding: 0 20px 0 24px;
   color: #fff;
-  background: #11191e;
+  background: var(--brand-deep);
   box-shadow: 0 13px 28px rgb(16 54 77 / 20%);
 }
 
 .heroActions a:last-child {
   padding: 0 22px;
-  border: 1px solid rgb(7 136 245 / 18%);
-  color: #0875cb;
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 18%);
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 58%);
 }
 
@@ -165,7 +165,7 @@
   height: 38px;
   place-items: center;
   border-radius: 50%;
-  color: #0788f5;
+  color: var(--brand-bronze);
   background: rgb(255 255 255 / 72%);
   box-shadow: 0 8px 20px rgb(26 100 144 / 10%);
 }
@@ -201,8 +201,8 @@
   position: absolute;
   overflow: hidden;
   border: 7px solid rgb(255 255 255 / 76%);
-  background: #ccebf9;
-  box-shadow: 0 25px 65px rgb(25 102 149 / 20%);
+  background: var(--brand-cream);
+  box-shadow: 0 25px 65px rgb(var(--brand-deep-rgb) / 20%);
 }
 
 .heroMainImage {
@@ -252,8 +252,8 @@
   border: 1px solid rgb(255 255 255 / 80%);
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 18px 38px rgb(7 136 245 / 28%);
+  background: var(--brand-bronze);
+  box-shadow: 0 18px 38px rgb(var(--brand-bronze-rgb) / 28%);
   transform: rotate(-8deg);
 }
 
@@ -287,7 +287,7 @@
   width: 92%;
   max-width: none;
   height: auto;
-  filter: drop-shadow(0 20px 18px rgb(23 80 115 / 18%));
+  filter: drop-shadow(0 20px 18px rgb(var(--brand-deep-rgb) / 18%));
   pointer-events: none;
 }
 
@@ -331,7 +331,7 @@
 }
 
 .sectionIndex span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 12px;
   font-weight: 800;
 }
@@ -353,7 +353,7 @@
 }
 
 .manifestoStatement em {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-style: normal;
 }
 
@@ -440,21 +440,21 @@
 
 .methodCard:first-child {
   color: #fff;
-  border-color: #0788f5;
-  background: #0788f5;
-  box-shadow: 0 20px 42px rgb(7 136 245 / 20%);
+  border-color: var(--brand-bronze);
+  background: var(--brand-bronze);
+  box-shadow: 0 20px 42px rgb(var(--brand-bronze-rgb) / 20%);
 }
 
 .methodCard:hover {
   color: #fff;
   border-color: #11191e;
-  background: #11191e;
+  background: var(--brand-deep);
   box-shadow: 0 22px 48px rgb(16 43 59 / 18%);
   transform: translateY(-8px);
 }
 
 .methodNumber {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 11px;
   font-weight: 800;
 }
@@ -471,8 +471,8 @@
   margin-left: auto;
   place-items: center;
   border-radius: 50%;
-  color: #0788f5;
-  background: #edf7ff;
+  color: var(--brand-bronze);
+  background: var(--brand-cream-soft);
 }
 
 .methodCard:first-child .methodIcon,
@@ -534,7 +534,7 @@
 .experienceSmall {
   position: absolute;
   overflow: hidden;
-  background: #dcecf4;
+  background: var(--brand-cream);
 }
 
 .experienceMain {
@@ -601,7 +601,7 @@
 }
 
 .experienceCopy li > span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 800;
 }
@@ -631,8 +631,8 @@
   border-radius: 34px;
   color: #fff;
   background:
-    radial-gradient(circle at 82% 10%, rgb(75 185 255 / 34%), transparent 31%),
-    linear-gradient(135deg, #087edf 0%, #0567bd 55%, #054c91 100%);
+    radial-gradient(circle at 82% 10%, rgb(212 166 80 / 34%), transparent 31%),
+    linear-gradient(135deg, var(--brand-deep-soft) 0%, var(--brand-deep) 55%, var(--brand-deep-dark) 100%);
 }
 
 .valuesIntro {
@@ -766,7 +766,7 @@
   margin: 0;
   overflow: hidden;
   border-radius: 24px;
-  background: #dcecf4;
+  background: var(--brand-cream);
 }
 
 .destinationRail figure:nth-child(even) {
@@ -823,7 +823,7 @@
   padding: clamp(55px, 7vw, 105px);
   overflow: hidden;
   border-radius: 34px;
-  background: #dff3fd;
+  background: var(--brand-cream);
 }
 
 .finalCta > img {
@@ -835,7 +835,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, rgb(232 248 255 / 94%) 0%, rgb(232 248 255 / 79%) 46%, rgb(232 248 255 / 18%) 78%);
+  background: linear-gradient(90deg, rgb(248 243 234 / 96%) 0%, rgb(245 238 226 / 82%) 46%, rgb(245 238 226 / 20%) 78%);
   content: "";
 }
 
@@ -874,8 +874,8 @@
   gap: 25px;
   padding: 0 20px 0 24px;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 13px 26px rgb(7 136 245 / 24%);
+  background: var(--brand-bronze);
+  box-shadow: 0 13px 26px rgb(var(--brand-bronze-rgb) / 24%);
 }
 
 .finalCtaContent a:last-child {
@@ -1198,7 +1198,7 @@
   }
 
   .finalCta::after {
-    background: linear-gradient(180deg, rgb(232 248 255 / 95%) 0%, rgb(232 248 255 / 84%) 60%, rgb(232 248 255 / 22%) 100%);
+    background: linear-gradient(180deg, rgb(248 243 234 / 96%) 0%, rgb(245 238 226 / 88%) 60%, rgb(245 238 226 / 24%) 100%);
   }
 
   .finalCtaContent { align-self: flex-start; }

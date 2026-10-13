@@ -3,23 +3,23 @@ import styles from "./WhyQueenTour.module.css";
 
 const benefits = [
   {
-    title: "Viaggi davvero su misura",
-    description: "Ogni proposta nasce dai tuoi desideri, dal tuo budget e dal tuo modo di viaggiare.",
+    title: "Specialisti di Hurghada",
+    description: "Conosciamo zone, strutture e distanze: ogni consiglio nasce da una competenza precisa.",
     icon: "sparkles",
   },
   {
-    title: "Assistenza sempre presente",
-    description: "Ti accompagniamo prima, durante e dopo la partenza con un supporto diretto e umano.",
+    title: "Hotel selezionati",
+    description: "Valutiamo posizione, servizi e atmosfera per proporti il resort davvero adatto a te.",
     icon: "support",
   },
   {
-    title: "Esperienze selezionate",
-    description: "Scegliamo strutture, voli e attività affidabili per farti vivere solo il meglio.",
+    title: "Transfer coordinati",
+    description: "Dall’aeroporto all’hotel, organizziamo spostamenti chiari, puntuali e senza passaggi inutili.",
     icon: "compass",
   },
   {
-    title: "Parti senza pensieri",
-    description: "Organizziamo ogni dettaglio del viaggio, così a te resta soltanto il piacere di partire.",
+    title: "Escursioni autentiche",
+    description: "Mare, deserto e cultura: scegliamo esperienze affidabili per scoprire l’Egitto oltre il resort.",
     icon: "shield",
   },
 ];
@@ -80,16 +80,16 @@ export default function WhyQueenTour() {
     <section className={styles.section} id="chi-siamo" aria-labelledby="why-queen-tour-title">
       <div className={styles.content}>
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>Il valore di Queen Tour</span>
+          <span className={styles.eyebrow}>Una specializzazione vera</span>
           <h2 id="why-queen-tour-title">
-            Perché scegliere<br />Queen Tour?
+            Conosciamo l’Egitto.<br />Non lo improvvisiamo.
           </h2>
           <p>
-            Non vendiamo semplicemente vacanze. Ascoltiamo le tue idee e le trasformiamo
-            in un viaggio costruito con attenzione, esperienza e cura.
+            Ci concentriamo su una destinazione per conoscerla davvero. Così ogni proposta
+            è più precisa, ogni risposta più utile, ogni esperienza più serena.
           </p>
           <Link className={styles.button} href="/pacchetti">
-            Scopri i pacchetti
+            Esplora Hurghada
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h14M14 7l5 5-5 5" />
             </svg>

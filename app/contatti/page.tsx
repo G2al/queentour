@@ -4,18 +4,17 @@ import Link from "next/link";
 import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
-import skyImage from "@/public/images/sfondo-slide.png";
 import ContactJourney from "./ContactJourney";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Contatti | Queen Tour",
   description:
-    "Contatta Queen Tour ad Aversa e raccontaci il viaggio che desideri. Richiedi una proposta personalizzata o vieni a trovarci in Via Roma.",
+    "Contatta Queen Tour per hotel, trasferimenti ed escursioni Solo Land a Hurghada e sul Mar Rosso.",
 };
 
 const whatsappUrl =
-  "https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20parlare%20del%20mio%20prossimo%20viaggio.";
+  "https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20ricevere%20una%20proposta%20Solo%20Land%20per%20Hurghada.";
 
 export default function ContactPage() {
   return (
@@ -23,14 +22,14 @@ export default function ContactPage() {
       <Header />
       <main className={styles.page}>
         <section className={styles.hero} aria-labelledby="contact-title">
-          <Image src={skyImage} alt="" fill priority placeholder="blur" sizes="96vw" aria-hidden="true" />
+          <Image src="/images/egypt-hurghada-hero.png" alt="" fill priority sizes="96vw" aria-hidden="true" />
           <div className={styles.heroGlow} aria-hidden="true" />
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Parliamo del tuo viaggio</span>
-            <h1 id="contact-title">Ogni grande partenza comincia da una <em>domanda.</em></h1>
+            <span className={styles.eyebrow}>Parliamo del tuo Egitto</span>
+            <h1 id="contact-title">Hurghada è vicina. Iniziamo da una <em>domanda.</em></h1>
             <p>
-              Raccontaci cosa immagini. Ti ascoltiamo, mettiamo ordine nelle idee e trasformiamo il tuo
-              desiderio in un viaggio costruito davvero bene.
+              Hai già il volo o stai ancora scegliendo le date? Dicci cosa ti serve a terra:
+              prepareremo una proposta chiara per hotel, transfer ed escursioni.
             </p>
             <div className={styles.heroActions}>
               <a href="#richiesta">Inizia la richiesta <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
@@ -44,18 +43,18 @@ export default function ContactPage() {
               <small>Queen Tour · Aversa</small>
               <span>QT</span>
             </div>
-            <p>“Non una risposta automatica. Una persona che ascolta davvero.”</p>
+            <p>“Non una risposta generica. Uno specialista che conosce davvero Hurghada.”</p>
             <div className={styles.heroCardBottom}>
               <div className={styles.avatarGroup} aria-hidden="true"><span>Q</span><span>T</span><span>+</span></div>
-              <span><strong>Parli con noi</strong>Dal primo messaggio al rientro</span>
+              <span><strong>Parli con noi</strong>Dall’arrivo in Egitto al rientro</span>
             </div>
           </div>
 
           <div className={styles.heroTicker} aria-hidden="true">
-            <span>ASCOLTO</span><i />
-            <span>ESPERIENZA</span><i />
-            <span>CHIAREZZA</span><i />
-            <span>PARTENZA</span>
+            <span>HOTEL</span><i />
+            <span>TRANSFER</span><i />
+            <span>ESCURSIONI</span><i />
+            <span>HURGHADA</span>
           </div>
         </section>
 
@@ -109,8 +108,8 @@ export default function ContactPage() {
         </section>
 
         <section className={styles.finalStrip}>
-          <div><span>Hai già scelto?</span><h2>Scopri i viaggi pronti a partire.</h2></div>
-          <Link href="/pacchetti">Esplora i pacchetti <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></Link>
+          <div><span>Hai già il volo?</span><h2>Costruiamo tutto ciò che ti aspetta a terra.</h2></div>
+          <Link href="/pacchetti">Esplora Hurghada <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></Link>
         </section>
       </main>
       <Footer />

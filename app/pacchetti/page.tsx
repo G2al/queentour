@@ -5,8 +5,8 @@ import PackageCatalog from "./PackageCatalog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Pacchetti viaggio | Queen Tour",
-  description: "Scopri e filtra i pacchetti viaggio Queen Tour per mare, città, tour e viaggi romantici.",
+  title: "Hurghada: hotel, transfer ed escursioni | Queen Tour",
+  description: "Scopri i servizi Solo Land Queen Tour a Hurghada: soggiorni in hotel, trasferimenti privati ed escursioni sul Mar Rosso.",
 };
 
 export default function PackagesPage() {
@@ -14,42 +14,42 @@ export default function PackagesPage() {
     <main>
       <section className={styles.hero} aria-labelledby="packages-page-title">
         <div className={styles.heroCopy}>
-          <span className={styles.eyebrow}>Pacchetti Queen Tour</span>
-          <h1 id="packages-page-title">Il mondo che desideri, organizzato per te.</h1>
+          <span className={styles.eyebrow}>Egitto · Hurghada · Solo Land</span>
+          <h1 id="packages-page-title">Tutto il tuo Egitto, una volta atterrato.</h1>
           <p>
-            Proposte curate, servizi selezionati e assistenza dedicata. Trova il viaggio
-            giusto oppure chiedici di personalizzarlo completamente.
+            Hotel selezionati, transfer puntuali ed escursioni autentiche. Componi la
+            tua esperienza a Hurghada con servizi chiari e assistenza dedicata.
           </p>
           <div className={styles.heroActions}>
-            <Link href="#catalogo">Esplora i pacchetti</Link>
-            <span><strong>6</strong> destinazioni selezionate</span>
+            <Link href="#catalogo">Esplora le proposte</Link>
+            <span><strong>3</strong> servizi · volo escluso</span>
           </div>
         </div>
 
         <div className={styles.heroVisual}>
           <div className={styles.mainImage}>
-            <Image src="/images/maldive.jpg" alt="Laguna tropicale alle Maldive" fill priority sizes="(max-width: 760px) 92vw, 48vw" />
+            <Image src="/images/egypt-hurghada-hero.png" alt="La costa di Hurghada sul Mar Rosso" fill priority sizes="(max-width: 760px) 92vw, 48vw" />
           </div>
           <div className={styles.smallImage}>
-            <Image src="/images/newyork.jpg" alt="Times Square a New York" fill sizes="180px" />
+            <Image src="/images/egypt-excursion.png" alt="Escursione in barca sul Mar Rosso" fill sizes="180px" />
           </div>
           <div className={styles.heroNote}>
-            <span>Assistenza Queen Tour</span>
-            <strong>Prima, durante e dopo il viaggio.</strong>
+            <span>Specialisti di Hurghada</span>
+            <strong>Conosciamo l’Egitto che proponiamo.</strong>
           </div>
         </div>
       </section>
 
       <PackageCatalog />
 
-      <section className={styles.customTrip} aria-label="Viaggio su misura">
+      <section className={styles.customTrip} aria-label="Egitto su misura">
         <div>
-          <span>Non trovi quello che cerchi?</span>
-          <h2>Costruiamo il tuo viaggio da zero.</h2>
-          <p>Partenza, durata, struttura ed esperienze: raccontaci la tua idea e la trasformeremo in una proposta personale.</p>
+          <span>La tua combinazione ideale</span>
+          <h2>Hotel, transfer, escursioni. Scegli tu.</h2>
+          <p>Dicci date, numero di ospiti e stile di soggiorno: creeremo una proposta Solo Land chiara, personalizzata e senza servizi superflui.</p>
         </div>
         <a href="https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20creare%20un%20viaggio%20su%20misura." target="_blank" rel="noreferrer">
-          Parla con un travel designer
+          Parla con uno specialista Egitto
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
         </a>
       </section>

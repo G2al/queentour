@@ -12,7 +12,7 @@
 }
 
 .heading > span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 9px;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -137,7 +137,7 @@
   place-items: center;
   border: 2px solid rgb(255 255 255 / 72%);
   border-radius: 50%;
-  color: #1689dd;
+  color: var(--brand-bronze);
   background: rgb(255 255 255 / 72%);
   box-shadow: 0 5px 12px rgb(31 69 91 / 10%);
 }

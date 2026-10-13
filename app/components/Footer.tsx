@@ -13,15 +13,15 @@ export default function Footer() {
           <Link href="/" className={styles.logoLink} aria-label="Queen Tour - Home">
             <Image
               className={styles.logo}
-              src="/images/logo-qeentour-primary.png"
+              src="/images/logo-queentour.png"
               alt="Queen Tour"
-              width={1858}
-              height={568}
+              width={1426}
+              height={1103}
             />
           </Link>
           <p>
-            Il tuo viaggio, la nostra passione.<br />
-            Esperienze su misura da Aversa al mondo.
+            Specialisti dell’Egitto e di Hurghada.<br />
+            Hotel, transfer ed escursioni Solo Land.
           </p>
 
           <div className={styles.socials} aria-label="Social Queen Tour">
@@ -53,17 +53,17 @@ export default function Footer() {
         <nav className={styles.column} aria-label="Azienda">
           <h2>Azienda</h2>
           <Link href="/chi-siamo">Chi siamo</Link>
-          <Link href="/pacchetti">Pacchetti</Link>
+          <Link href="/pacchetti">Egitto</Link>
           <Link href="/#recensioni">Recensioni</Link>
           <Link href="/contatti">Contatti</Link>
         </nav>
 
         <nav className={styles.column} aria-label="Risorse">
           <h2>Risorse</h2>
-          <Link href="/chi-siamo#metodo">Viaggi su misura</Link>
-          <Link href="/chi-siamo#valori">Assistenza dedicata</Link>
-          <Link href="/pacchetti">Destinazioni</Link>
-          <Link href="/#come-funziona">Come prenotare</Link>
+          <Link href="/pacchetti">Hotel a Hurghada</Link>
+          <Link href="/pacchetti">Trasferimenti</Link>
+          <Link href="/pacchetti">Escursioni</Link>
+          <Link href="/#come-funziona">Formula Solo Land</Link>
         </nav>
 
         <div className={styles.column}>

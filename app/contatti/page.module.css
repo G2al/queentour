@@ -14,7 +14,7 @@
   padding: clamp(60px, 7vw, 112px);
   overflow: hidden;
   border-radius: 34px;
-  background: #dff4ff;
+  background: var(--brand-cream);
   isolation: isolate;
 }
 
@@ -29,7 +29,7 @@
   position: absolute;
   z-index: -2;
   inset: 0;
-  background: linear-gradient(90deg, rgb(240 250 255 / 95%) 0%, rgb(232 248 255 / 76%) 48%, rgb(217 242 255 / 28%) 100%);
+  background: linear-gradient(90deg, rgb(251 248 242 / 96%) 0%, rgb(245 238 226 / 80%) 48%, rgb(29 62 69 / 16%) 100%);
   content: "";
 }
 
@@ -40,9 +40,9 @@
   left: 42%;
   width: 540px;
   height: 540px;
-  border: 1px solid rgb(7 136 245 / 13%);
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 13%);
   border-radius: 50%;
-  box-shadow: 0 0 0 70px rgb(255 255 255 / 14%), 0 0 0 140px rgb(7 136 245 / 4%);
+  box-shadow: 0 0 0 70px rgb(255 255 255 / 14%), 0 0 0 140px rgb(var(--brand-bronze-rgb) / 4%);
   content: "";
 }
 
@@ -54,7 +54,7 @@
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: rgb(7 136 245 / 18%);
+  background: rgb(var(--brand-bronze-rgb) / 18%);
   filter: blur(70px);
 }
 
@@ -70,9 +70,9 @@
   min-height: 31px;
   align-items: center;
   padding: 0 13px;
-  border: 1px solid rgb(7 136 245 / 20%);
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 20%);
   border-radius: 999px;
-  color: #0875cb;
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 58%);
   font-size: 10px;
   font-weight: 780;
@@ -92,7 +92,7 @@
 
 .hero h1 em {
   display: block;
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-style: normal;
 }
 
@@ -128,14 +128,14 @@
   gap: 26px;
   padding: 0 20px 0 25px;
   color: #fff;
-  background: #0d171d;
+  background: var(--brand-deep);
   box-shadow: 0 15px 35px rgb(15 57 80 / 22%);
 }
 
 .heroActions a:last-child {
   padding: 0 25px;
-  border: 1px solid rgb(7 136 245 / 17%);
-  color: #0875cb;
+  border: 1px solid rgb(var(--brand-bronze-rgb) / 17%);
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 67%);
 }
 
@@ -207,7 +207,7 @@
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
+  background: var(--brand-bronze);
   font-size: 11px;
   font-weight: 800;
 }
@@ -248,7 +248,7 @@
   border: 3px solid #fff;
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
+  background: var(--brand-bronze);
   font-size: 10px;
   font-weight: 800;
 }
@@ -259,8 +259,8 @@
 }
 
 .avatarGroup span:last-child {
-  color: #0788f5;
-  background: #e5f5ff;
+  color: var(--brand-bronze);
+  background: var(--brand-cream);
 }
 
 .heroCardBottom > span:last-child {
@@ -295,7 +295,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0788f5;
+  background: var(--brand-bronze);
 }
 
 .quickContacts {
@@ -325,7 +325,7 @@
 }
 
 .quickContacts > a:hover {
-  background: #f6fbff;
+  background: var(--brand-cream-soft);
 }
 
 .contactIcon {
@@ -334,8 +334,8 @@
   height: 45px;
   place-items: center;
   border-radius: 50%;
-  color: #0788f5;
-  background: #e9f6ff;
+  color: var(--brand-bronze);
+  background: var(--brand-cream);
 }
 
 .contactIcon svg {
@@ -390,7 +390,7 @@
   padding: clamp(50px, 5vw, 78px);
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(155deg, #058cf8 0%, #057bd9 65%, #0667bc 100%);
+  background: linear-gradient(155deg, var(--brand-deep-soft) 0%, var(--brand-deep) 65%, var(--brand-deep-dark) 100%);
 }
 
 .formIntro::before,
@@ -502,7 +502,7 @@
 
 .formSteps .currentStep > span,
 .formSteps .completedStep > span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   background: #fff;
 }
 
@@ -581,7 +581,7 @@
 
 .formPanel legend span {
   margin-bottom: 10px;
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 780;
   letter-spacing: .1em;
@@ -649,9 +649,9 @@
 .fieldWide textarea:focus,
 .fieldRow input:focus,
 .fieldRow select:focus {
-  border-color: #0788f5;
+  border-color: var(--brand-bronze);
   background: #fff;
-  box-shadow: 0 0 0 4px rgb(7 136 245 / 9%);
+  box-shadow: 0 0 0 4px rgb(var(--brand-bronze-rgb) / 9%);
 }
 
 .fieldWide input::placeholder,
@@ -685,15 +685,15 @@
 }
 
 .choiceGroup button:hover {
-  border-color: #91ccf6;
+  border-color: var(--brand-gold-light);
   transform: translateY(-2px);
 }
 
 .choiceGroup .choiceActive {
-  border-color: #0788f5;
-  color: #0878cf;
-  background: #eaf6ff;
-  box-shadow: inset 0 0 0 1px #0788f5;
+  border-color: var(--brand-bronze);
+  color: var(--brand-bronze-dark);
+  background: var(--brand-cream);
+  box-shadow: inset 0 0 0 1px var(--brand-bronze);
 }
 
 .formActions {
@@ -741,8 +741,8 @@
 .successState button {
   margin-left: auto;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 13px 28px rgb(7 136 245 / 22%);
+  background: var(--brand-bronze);
+  box-shadow: 0 13px 28px rgb(var(--brand-bronze-rgb) / 22%);
 }
 
 .submitButton i {
@@ -798,10 +798,10 @@
 .summaryMessage {
   margin: 15px 0 0;
   padding: 15px 18px;
-  border-left: 3px solid #0788f5;
+  border-left: 3px solid var(--brand-bronze);
   border-radius: 0 12px 12px 0;
   color: #66747c;
-  background: #eff8ff;
+  background: var(--brand-cream-soft);
   font-size: 12px;
   font-style: italic;
   line-height: 1.5;
@@ -822,7 +822,7 @@
   width: 17px;
   height: 17px;
   margin: 0;
-  accent-color: #0788f5;
+  accent-color: var(--brand-bronze);
 }
 
 .successState {
@@ -843,8 +843,8 @@
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 20px 45px rgb(7 136 245 / 25%);
+  background: var(--brand-bronze);
+  box-shadow: 0 20px 45px rgb(var(--brand-bronze-rgb) / 25%);
 }
 
 .successMark svg {
@@ -862,7 +862,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0788f5;
+  background: var(--brand-bronze);
 }
 
 .successMark span:nth-of-type(1) { top: -13px; left: 13px; }
@@ -870,7 +870,7 @@
 .successMark span:nth-of-type(3) { bottom: -18px; left: 4px; width: 6px; height: 6px; }
 
 .successEyebrow {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 780;
   letter-spacing: .11em;
@@ -954,7 +954,7 @@
   align-items: center;
   gap: 20px;
   margin-top: 18px;
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 12px;
   font-weight: 760;
   text-decoration: none;
@@ -965,7 +965,7 @@
   height: clamp(470px, 54vw, 680px);
   overflow: hidden;
   border-radius: 32px;
-  background: #e7f2f8;
+  background: var(--brand-cream);
   box-shadow: 0 25px 70px rgb(23 70 96 / 13%);
 }
 
@@ -998,7 +998,7 @@
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
+  background: var(--brand-bronze);
   font-size: 11px;
   font-weight: 800;
 }
@@ -1029,11 +1029,11 @@
   overflow: hidden;
   border-radius: 30px;
   color: #fff;
-  background: #0e1820;
+  background: var(--brand-deep);
 }
 
 .finalStrip span {
-  color: #59b8ff;
+  color: var(--brand-gold-light);
   font-size: 10px;
   font-weight: 760;
   letter-spacing: .1em;
@@ -1052,8 +1052,8 @@
   gap: 25px;
   padding: 0 20px 0 24px;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 15px 35px rgb(7 136 245 / 22%);
+  background: var(--brand-bronze);
+  box-shadow: 0 15px 35px rgb(var(--brand-bronze-rgb) / 22%);
 }
 
 @keyframes riseIn {
@@ -1168,7 +1168,7 @@
   .mobileProgress > span {
     display: block;
     margin-bottom: 10px;
-    color: #0788f5;
+    color: var(--brand-bronze);
     font-size: 10px;
     font-weight: 760;
     letter-spacing: .08em;
@@ -1186,7 +1186,7 @@
     display: block;
     height: 100%;
     border-radius: inherit;
-    background: #0788f5;
+    background: var(--brand-bronze);
     transition: width 350ms cubic-bezier(.22, 1, .36, 1);
   }
 

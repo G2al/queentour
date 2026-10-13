@@ -46,7 +46,7 @@
 
 .close:hover {
   color: #ffffff;
-  background: #0788f5;
+  background: var(--brand-bronze);
   transform: rotate(6deg);
 }
 
@@ -66,7 +66,7 @@
   color: #ffffff;
   background:
     radial-gradient(circle at 90% 12%, rgb(255 255 255 / 20%), transparent 30%),
-    linear-gradient(145deg, #0ba2ff 0%, #087ee8 55%, #0669c7 100%);
+    linear-gradient(145deg, var(--brand-gold) 0%, var(--brand-bronze-dark) 55%, var(--brand-deep) 100%);
 }
 
 .intro::after {
@@ -130,14 +130,14 @@
   border: 1px solid rgb(255 255 255 / 42%);
   border-radius: 50%;
   color: rgb(255 255 255 / 62%);
-  background: #087ee8;
+  background: var(--brand-bronze-dark);
   font-size: 10px;
   font-weight: 750;
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .stepActive {
-  color: #0788f5;
+  color: var(--brand-bronze);
   background: #ffffff;
   transform: scale(1.06);
 }
@@ -160,7 +160,7 @@
 }
 
 .panelHeading span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 9px;
   font-weight: 750;
   letter-spacing: 0.08em;
@@ -226,9 +226,9 @@
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: #0788f5;
+  border-color: var(--brand-bronze);
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgb(7 136 245 / 10%);
+  box-shadow: 0 0 0 4px rgb(var(--brand-bronze-rgb) / 10%);
 }
 
 .actions {
@@ -260,8 +260,8 @@
   padding: 0 18px;
   border: 0;
   color: #ffffff;
-  background: linear-gradient(135deg, #169fff, #087ee8);
-  box-shadow: 0 10px 22px rgb(3 126 230 / 22%);
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-bronze-dark));
+  box-shadow: 0 10px 22px rgb(var(--brand-bronze-rgb) / 22%);
   transition: box-shadow 180ms ease, transform 180ms ease, opacity 180ms ease;
 }
 
@@ -284,7 +284,7 @@
 
 .nextButton:hover:not(:disabled),
 .submitButton:hover {
-  box-shadow: 0 14px 28px rgb(3 126 230 / 32%);
+  box-shadow: 0 14px 28px rgb(var(--brand-bronze-rgb) / 32%);
   transform: translateY(-2px);
 }
 
@@ -337,10 +337,10 @@
 .requestNote {
   margin: 14px 0 20px;
   padding: 13px 14px;
-  border-left: 3px solid #0788f5;
+  border-left: 3px solid var(--brand-bronze);
   border-radius: 0 10px 10px 0;
   color: #5e676d;
-  background: #f4f9fd;
+  background: var(--brand-cream-soft);
   font-size: 10px;
   line-height: 1.5;
 }

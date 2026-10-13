@@ -13,7 +13,7 @@
 }
 
 .eyebrow {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 760;
   letter-spacing: .1em;
@@ -69,7 +69,7 @@
 }
 
 .filterHeading > div > span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 9px;
   font-weight: 750;
   letter-spacing: .08em;
@@ -91,10 +91,10 @@
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  background: #0788f5;
+  background: var(--brand-bronze);
   font-size: 10px;
   font-weight: 750;
-  box-shadow: 0 7px 16px rgb(7 136 245 / 24%);
+  box-shadow: 0 7px 16px rgb(var(--brand-bronze-rgb) / 24%);
 }
 
 .field {
@@ -161,8 +161,8 @@
 
 .field select:focus,
 .inputWrap:focus-within {
-  border-color: #0788f5;
-  box-shadow: 0 0 0 4px rgb(7 136 245 / 9%);
+  border-color: var(--brand-bronze);
+  box-shadow: 0 0 0 4px rgb(var(--brand-bronze-rgb) / 9%);
 }
 
 .resetButton {
@@ -186,7 +186,7 @@
 }
 
 .resetButton svg { width: 16px; fill: none; stroke: currentcolor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
-.resetButton:hover:not(:disabled) { border-color: #0788f5; color: #0788f5; background: #f5fbff; }
+.resetButton:hover:not(:disabled) { border-color: var(--brand-bronze); color: var(--brand-bronze); background: var(--brand-cream-soft); }
 .resetButton:disabled { cursor: not-allowed; opacity: .42; }
 
 .resultsColumn { min-width: 0; }
@@ -293,7 +293,7 @@
 .badge {
   left: 17px;
   padding: 0 11px;
-  color: #0872c9;
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 92%);
   backdrop-filter: blur(8px);
 }
@@ -303,8 +303,8 @@
   gap: 5px;
   padding: 0 10px;
   color: #fff;
-  background: #0788f5;
-  box-shadow: 0 6px 15px rgb(7 136 245 / 22%);
+  background: var(--brand-bronze);
+  box-shadow: 0 6px 15px rgb(var(--brand-bronze-rgb) / 22%);
 }
 
 .rating svg {
@@ -324,7 +324,7 @@
 }
 
 .cardHeading > div > span {
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 750;
   letter-spacing: .07em;
@@ -383,7 +383,7 @@
   width: 14px;
   flex: 0 0 14px;
   fill: none;
-  stroke: #0788f5;
+  stroke: var(--brand-bronze);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.65;
@@ -428,7 +428,7 @@
   padding: 0 15px;
   border-radius: 999px;
   color: #fff;
-  background: #11181d;
+  background: var(--brand-deep);
   font-size: 12px;
   font-weight: 750;
   text-decoration: none;
@@ -436,7 +436,7 @@
 }
 
 .detailsButton:hover {
-  background: #0788f5;
+  background: var(--brand-bronze);
 }
 
 .detailsButton svg {
@@ -465,13 +465,13 @@
   height: 48px;
   place-items: center;
   border-radius: 50%;
-  color: #0788f5;
-  background: #eaf6ff;
+  color: var(--brand-bronze);
+  background: var(--brand-cream);
 }
 
 .empty h3 { margin: 16px 0 0; font-size: 20px; }
 .empty p { margin: 8px 0 0; color: #80898e; font-size: 13px; }
-.empty button { margin-top: 20px; padding: 12px 18px; border: 0; border-radius: 999px; color: #fff; background: #0788f5; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+.empty button { margin-top: 20px; padding: 12px 18px; border: 0; border-radius: 999px; color: #fff; background: var(--brand-bronze); font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
 
 @keyframes filtersIn {
   from { opacity: 0; transform: translateX(-18px); }
@@ -501,7 +501,7 @@
     border: 0;
     border-radius: 14px;
     color: #fff;
-    background: #11181d;
+    background: var(--brand-deep);
     font: inherit;
     font-size: 12px;
     font-weight: 750;
@@ -509,9 +509,9 @@
     transition: background-color 180ms ease;
   }
 
-  .mobileFilterToggleOpen { background: #0788f5; }
+  .mobileFilterToggleOpen { background: var(--brand-bronze); }
   .mobileFilterToggle svg { width: 17px; fill: none; stroke: currentcolor; stroke-linecap: round; stroke-width: 1.8; }
-  .mobileFilterToggle span { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; color: #0788f5; background: #fff; font-size: 9px; }
+  .mobileFilterToggle span { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; color: var(--brand-bronze); background: #fff; font-size: 9px; }
   .catalogLayout { display: block; }
   .filterPanel { position: static; max-height: 0; margin-bottom: 0; padding-block: 0; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(-12px); animation: none; transition: max-height 350ms ease, margin 350ms ease, padding 350ms ease, opacity 220ms ease, transform 300ms ease, visibility 350ms ease; }
   .filterPanelOpen { max-height: 850px; margin-bottom: 26px; padding-block: 24px; opacity: 1; visibility: visible; transform: translateY(0); }

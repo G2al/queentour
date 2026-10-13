@@ -4,42 +4,38 @@ import Link from "next/link";
 import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
-import dubaiImage from "@/public/images/dubai.jpg";
-import maldiveImage from "@/public/images/maldive.jpg";
-import newYorkImage from "@/public/images/newyork.jpg";
-import planeImage from "@/public/images/queentour-aereo.png";
 import AboutMotion from "./AboutMotion";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Chi siamo | Queen Tour",
   description:
-    "Conosci Queen Tour, tour operator ad Aversa. Viaggi su misura, ascolto autentico e assistenza dedicata dalla prima idea al rientro.",
+    "Conosci Queen Tour, specialista dell’Egitto e di Hurghada per hotel, trasferimenti ed escursioni Solo Land.",
 };
 
 const whatsappUrl =
-  "https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20iniziare%20a%20progettare%20il%20mio%20prossimo%20viaggio.";
+  "https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20organizzare%20il%20mio%20soggiorno%20in%20Egitto.";
 
 const method = [
   {
     number: "01",
-    title: "Ascoltiamo prima di proporre",
-    text: "Partiamo da desideri, ritmi, budget e aspettative. La destinazione giusta arriva dopo, non prima.",
+    title: "Capiamo come vuoi vivere Hurghada",
+    text: "Famiglia, coppia, relax o scoperta: partiamo dal tuo modo di viaggiare e dal budget reale.",
   },
   {
     number: "02",
-    title: "Disegniamo intorno a te",
-    text: "Voli, soggiorni ed esperienze diventano un itinerario coerente, semplice da vivere e davvero personale.",
+    title: "Selezioniamo ciò che serve",
+    text: "Hotel, transfer ed escursioni diventano una proposta Solo Land semplice, coerente e personale.",
   },
   {
     number: "03",
-    title: "Controlliamo ogni dettaglio",
-    text: "Trasformiamo la complessità in chiarezza, così sai sempre cosa aspettarti prima della partenza.",
+    title: "Rendiamo tutto trasparente",
+    text: "Ti diciamo cosa è incluso, cosa resta fuori e come si svolgerà ogni servizio una volta arrivato.",
   },
   {
     number: "04",
-    title: "Restiamo al tuo fianco",
-    text: "Il rapporto non finisce con la prenotazione: ci siamo prima, durante e dopo il viaggio.",
+    title: "Restiamo raggiungibili",
+    text: "Prima dell’arrivo e durante il soggiorno hai un riferimento umano, diretto e riconoscibile.",
   },
 ];
 
@@ -65,21 +61,21 @@ export default function AboutPage() {
       <AboutMotion>
         <section className={styles.hero} aria-labelledby="about-title">
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Queen Tour · Aversa</span>
+            <span className={styles.eyebrow}>Da Aversa a Hurghada</span>
             <h1 id="about-title">
-              Non vendiamo viaggi.
-              <span>Disegniamo ricordi.</span>
+              Non vendiamo tutto il mondo.
+              <span>Conosciamo davvero l’Egitto.</span>
             </h1>
             <p>
-              Siamo il tour operator che trasforma una partenza in qualcosa che ti somiglia davvero:
-              pensato con cura, spiegato con chiarezza, vissuto senza distanza.
+              Siamo specialisti Solo Land: selezioniamo hotel, coordiniamo trasferimenti
+              e scegliamo esperienze autentiche a Hurghada e sul Mar Rosso.
             </p>
             <div className={styles.heroActions}>
               <Link href="/pacchetti">
-                Scopri le destinazioni
+                Scopri l’Egitto
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
               </Link>
-              <a href={whatsappUrl} target="_blank" rel="noreferrer">Parliamo del tuo viaggio</a>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer">Parliamo di Hurghada</a>
             </div>
             <div className={styles.locationLine}>
               <span className={styles.locationIcon} aria-hidden="true">
@@ -89,22 +85,21 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className={styles.heroVisual} aria-label="Destinazioni Queen Tour">
+          <div className={styles.heroVisual} aria-label="Hurghada e il Mar Rosso">
             <div className={styles.heroMainImage}>
-              <Image src={maldiveImage} alt="Laguna tropicale alle Maldive" fill priority placeholder="blur" sizes="(max-width: 760px) 86vw, 45vw" />
+              <Image src="/images/egypt-hurghada-hero.png" alt="La costa di Hurghada" fill priority sizes="(max-width: 760px) 86vw, 45vw" />
             </div>
             <div className={styles.heroCityImage}>
-              <Image src={newYorkImage} alt="New York" fill placeholder="blur" sizes="(max-width: 760px) 36vw, 17vw" />
+              <Image src="/images/egypt-hotel.png" alt="Resort sul Mar Rosso" fill sizes="(max-width: 760px) 36vw, 17vw" />
             </div>
             <div className={styles.heroDesertImage}>
-              <Image src={dubaiImage} alt="Dubai" fill placeholder="blur" sizes="(max-width: 760px) 31vw, 14vw" />
+              <Image src="/images/egypt-excursion.png" alt="Escursione sul Mar Rosso" fill sizes="(max-width: 760px) 31vw, 14vw" />
             </div>
             <div className={styles.heroSeal}>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16.5 19.5 7l-4.2 10.7-3.1-4.1-4.5 2.7L4 16.5Z" /><path d="m12.2 13.6 7.3-6.6" /></svg>
-              <span>Da Aversa</span>
-              <strong>al mondo</strong>
+              <span>Una meta</span>
+              <strong>conosciuta bene</strong>
             </div>
-            <Image className={styles.heroPlane} src={planeImage} alt="" placeholder="blur" aria-hidden="true" />
           </div>
 
           <a className={styles.scrollCue} href="#manifesto" aria-label="Scorri per conoscere Queen Tour">
@@ -120,18 +115,18 @@ export default function AboutPage() {
           </div>
           <div className={styles.manifestoStatement}>
             <h2>
-              La distanza tra <em>desiderare</em> e partire?
-              Una persona che ascolta davvero.
+              La differenza tra conoscere l’Egitto e <em>venderlo</em>?
+              I dettagli che solo uno specialista sa vedere.
             </h2>
           </div>
           <div className={styles.manifestoCopy}>
             <p>
-              Queen Tour nasce ad Aversa con un’idea semplice: scegliere un viaggio non dovrebbe mai
-              sembrare una pratica da sbrigare. È una decisione importante, personale, piena di aspettative.
+              Queen Tour nasce ad Aversa e sceglie di concentrarsi sull’Egitto, in particolare Hurghada:
+              una destinazione che vogliamo conoscere nelle sue zone, strutture e possibilità reali.
             </p>
             <p>
-              Per questo uniamo competenza e rapporto umano. I pacchetti sono un punto di partenza;
-              il risultato finale deve parlare di te.
+              Non includiamo il volo e non nascondiamo questa scelta. Ci occupiamo bene di ciò che avviene
+              a terra: soggiorno, trasferimenti, escursioni e assistenza.
             </p>
             <a href="https://www.google.com/maps/search/?api=1&query=Via+Roma+Aversa+CE" target="_blank" rel="noreferrer">
               Vieni a trovarci ad Aversa
@@ -144,9 +139,9 @@ export default function AboutPage() {
           <div className={styles.sectionHeading} data-reveal>
             <div>
               <span className={styles.eyebrow}>Il metodo Queen Tour</span>
-              <h2>Prima ti ascoltiamo.<br />Poi costruiamo il resto.</h2>
+              <h2>Una destinazione sola.<br />Molta più competenza.</h2>
             </div>
-            <p>Un processo semplice, leggibile e umano. Per arrivare alla partenza con una sola sensazione: è proprio il mio viaggio.</p>
+            <p>Un metodo chiaro per costruire solo i servizi che ti servono davvero, senza pacchetti rigidi e senza voli imposti.</p>
           </div>
           <div className={styles.methodGrid}>
             {method.map((item) => (
@@ -165,24 +160,24 @@ export default function AboutPage() {
         <section className={styles.experience} data-reveal>
           <div className={styles.experienceVisual}>
             <div className={styles.experienceMain}>
-              <Image src="/images/thailandia.jpg" alt="Mare cristallino in Thailandia" fill sizes="(max-width: 760px) 92vw, 49vw" />
+              <Image src="/images/egypt-excursion.png" alt="Mare cristallino delle isole Giftun" fill sizes="(max-width: 760px) 92vw, 49vw" />
             </div>
             <div className={styles.experienceSmall}>
-              <Image src="/images/messico.jpg" alt="Esperienza di viaggio in Messico" fill sizes="(max-width: 760px) 43vw, 20vw" />
+              <Image src="/images/egypt-transfer.png" alt="Transfer privato a Hurghada" fill sizes="(max-width: 760px) 43vw, 20vw" />
             </div>
-            <blockquote>“Il tuo viaggio non deve assomigliare a un catalogo.”</blockquote>
+            <blockquote>“Il tuo Egitto comincia quando atterri.”</blockquote>
           </div>
           <div className={styles.experienceCopy}>
-            <span className={styles.eyebrow}>Oltre la destinazione</span>
-            <h2>Il viaggio inizia molto prima del decollo.</h2>
+            <span className={styles.eyebrow}>La formula Solo Land</span>
+            <h2>Il volo è tuo. Tutto il resto può essere nostro.</h2>
             <p>
-              Inizia quando qualcuno capisce cosa stai cercando, anche se non sai ancora come chiamarlo.
-              È lì che una semplice vacanza diventa un’esperienza costruita bene.
+              Prenoti il volo che preferisci e noi costruiamo ciò che ti aspetta in Egitto.
+              Più libertà per te, più attenzione sui servizi che conosciamo davvero.
             </p>
             <ul>
-              <li><span>01</span><div><strong>Il tuo ritmo</strong><p>Relax, scoperta o entrambi: nessuna formula obbligatoria.</p></div></li>
-              <li><span>02</span><div><strong>Le tue priorità</strong><p>Investiamo il budget dove per te conta davvero.</p></div></li>
-              <li><span>03</span><div><strong>La tua tranquillità</strong><p>Informazioni chiare e un riferimento sempre riconoscibile.</p></div></li>
+              <li><span>01</span><div><strong>Il tuo hotel</strong><p>Selezionato per zona, stile, servizi e budget.</p></div></li>
+              <li><span>02</span><div><strong>I tuoi spostamenti</strong><p>Transfer coordinati con gli orari del tuo arrivo.</p></div></li>
+              <li><span>03</span><div><strong>Le tue esperienze</strong><p>Mare, deserto e cultura senza proposte standard.</p></div></li>
             </ul>
           </div>
         </section>
@@ -190,8 +185,8 @@ export default function AboutPage() {
         <section className={styles.values} id="valori" data-reveal>
           <div className={styles.valuesIntro}>
             <span className={styles.lightEyebrow}>Ciò in cui crediamo</span>
-            <h2>La tecnologia aiuta.<br />La fiducia fa partire.</h2>
-            <p>Dietro ogni schermata, preventivo e conferma deve esserci una relazione che funziona.</p>
+            <h2>La specializzazione conta.<br />La fiducia ancora di più.</h2>
+            <p>Dietro ogni preventivo trovi persone che conoscono la destinazione e restano raggiungibili.</p>
           </div>
           <div className={styles.valuesGrid}>
             {values.map((value, index) => (
@@ -207,28 +202,28 @@ export default function AboutPage() {
 
         <section className={styles.destinations} data-reveal>
           <div className={styles.destinationHeading}>
-            <span className={styles.eyebrow}>Un mondo di possibilità</span>
-            <h2>Il posto giusto è quello in cui ti riconosci.</h2>
+            <span className={styles.eyebrow}>Tante anime, un solo Mar Rosso</span>
+            <h2>Qual è la tua Hurghada?</h2>
           </div>
           <div className={styles.destinationRail}>
-            <figure><Image src="/images/sharm.jpg" alt="Sharm el-Sheikh" fill sizes="30vw" /><figcaption>Sharm el-Sheikh <span>Mare</span></figcaption></figure>
-            <figure><Image src="/images/newyork.jpg" alt="New York" fill sizes="30vw" /><figcaption>New York <span>City break</span></figcaption></figure>
-            <figure><Image src="/images/dubai.jpg" alt="Dubai" fill sizes="30vw" /><figcaption>Dubai <span>Iconica</span></figcaption></figure>
-            <figure><Image src="/images/maldive.jpg" alt="Maldive" fill sizes="30vw" /><figcaption>Maldive <span>Paradiso</span></figcaption></figure>
+            <figure><Image src="/images/egypt-hotel.png" alt="Hurghada" fill sizes="30vw" /><figcaption>Hurghada <span>Vibrante</span></figcaption></figure>
+            <figure><Image src="/images/egypt-hurghada-hero.png" alt="Sahl Hasheesh" fill sizes="30vw" /><figcaption>Sahl Hasheesh <span>Raffinata</span></figcaption></figure>
+            <figure><Image src="/images/sharm.jpg" alt="Makadi Bay" fill sizes="30vw" /><figcaption>Makadi Bay <span>Family</span></figcaption></figure>
+            <figure><Image src="/images/egypt-excursion.png" alt="Giftun Island" fill sizes="30vw" /><figcaption>Giftun Island <span>Autentica</span></figcaption></figure>
           </div>
         </section>
 
         <section className={styles.finalCta} data-reveal>
-          <Image src="/images/sfondo-slide.png" alt="" fill sizes="96vw" aria-hidden="true" />
+          <Image src="/images/egypt-hurghada-hero.png" alt="" fill sizes="96vw" aria-hidden="true" />
           <div className={styles.finalCtaContent}>
-            <span className={styles.eyebrow}>Il prossimo viaggio può iniziare qui</span>
-            <h2>Raccontaci dove vuoi andare.<br />Al resto pensiamo insieme.</h2>
+            <span className={styles.eyebrow}>Il tuo Egitto può iniziare qui</span>
+            <h2>Raccontaci come vuoi viverlo.<br />A terra pensiamo a tutto noi.</h2>
             <div>
               <a href={whatsappUrl} target="_blank" rel="noreferrer">
                 Inizia su WhatsApp
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
               </a>
-              <Link href="/pacchetti">Esplora i pacchetti</Link>
+              <Link href="/pacchetti">Esplora Hurghada</Link>
             </div>
           </div>
           <div className={styles.finalCtaMark}>QT</div>

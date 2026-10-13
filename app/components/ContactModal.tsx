@@ -14,6 +14,7 @@ const initialData = {
   phone: "",
   email: "",
   destination: "",
+  service: "",
   period: "",
   travelers: "2",
   message: "",
@@ -55,18 +56,19 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   const firstStepValid = data.name.trim().length > 2 && data.phone.trim().length > 5;
-  const secondStepValid = Boolean(data.destination && data.period && data.travelers);
+  const secondStepValid = Boolean(data.destination && data.service && data.period && data.travelers);
 
   const submitRequest = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const whatsappMessage = [
-      "Ciao Queen Tour, vorrei richiedere informazioni per un viaggio.",
+      "Ciao Queen Tour, vorrei richiedere una proposta Solo Land per l’Egitto.",
       "",
       `Nome: ${data.name}`,
       `Telefono: ${data.phone}`,
       data.email ? `Email: ${data.email}` : "",
       `Destinazione: ${data.destination}`,
+      `Servizio: ${data.service}`,
       `Periodo: ${data.period}`,
       `Viaggiatori: ${data.travelers}`,
       data.message ? `Richieste: ${data.message}` : "",
@@ -108,9 +110,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         </button>
 
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>Organizza il tuo viaggio</span>
-          <h2 id="contact-modal-title">Partiamo insieme.</h2>
-          <p>Raccontaci cosa desideri: prepareremo la proposta più adatta a te.</p>
+          <span className={styles.eyebrow}>Il tuo Egitto, su misura</span>
+          <h2 id="contact-modal-title">Ci vediamo a Hurghada.</h2>
+          <p>Hotel, transfer o escursioni: raccontaci cosa ti serve una volta atterrato.</p>
 
           <div className={styles.steps} aria-label={`Passaggio ${step} di 3`}>
             {[1, 2, 3].map((item) => (
@@ -186,24 +188,34 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <div className={styles.panel} key="travel-data">
               <div className={styles.panelHeading}>
                 <span>Step 02</span>
-                <h3>Che viaggio stai immaginando?</h3>
+                <h3>Come vuoi vivere l’Egitto?</h3>
               </div>
 
               <label className={styles.field}>
-                <span>Destinazione *</span>
+                <span>Zona *</span>
                 <select
                   value={data.destination}
                   onChange={(event) => update("destination", event.target.value)}
                   required
                 >
-                  <option value="">Scegli una destinazione</option>
-                  <option>Thailandia</option>
-                  <option>New York</option>
-                  <option>Sharm El Sheikh</option>
-                  <option>Messico</option>
-                  <option>Dubai</option>
-                  <option>Maldive</option>
-                  <option>Altra destinazione</option>
+                  <option value="">Scegli una zona</option>
+                  <option>Hurghada</option>
+                  <option>Sahl Hasheesh</option>
+                  <option>Makadi Bay</option>
+                  <option>Soma Bay</option>
+                  <option>El Gouna</option>
+                  <option>Da consigliare</option>
+                </select>
+              </label>
+
+              <label className={styles.field}>
+                <span>Servizio desiderato *</span>
+                <select value={data.service} onChange={(event) => update("service", event.target.value)} required>
+                  <option value="">Scegli un servizio</option>
+                  <option>Solo hotel</option>
+                  <option>Transfer privato</option>
+                  <option>Escursioni</option>
+                  <option>Hotel + transfer + escursioni</option>
                 </select>
               </label>
 
@@ -235,7 +247,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <textarea
                   value={data.message}
                   onChange={(event) => update("message", event.target.value)}
-                  placeholder="Budget, aeroporto di partenza, esigenze particolari..."
+                  placeholder="Hotel desiderato, numero del volo, escursioni o esigenze particolari..."
                   rows={3}
                 />
               </label>
@@ -278,6 +290,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <div>
                   <dt>Destinazione</dt>
                   <dd>{data.destination}</dd>
+                </div>
+                <div>
+                  <dt>Servizio</dt>
+                  <dd>{data.service}</dd>
                 </div>
                 <div>
                   <dt>Periodo</dt>

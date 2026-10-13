@@ -29,8 +29,8 @@ const initialData: FormData = {
   privacy: false,
 };
 
-const stepLabels = ["Tu", "Il viaggio", "I dettagli", "Riepilogo"];
-const travelStyles = ["Mare e relax", "Avventura", "City break", "Luna di miele"];
+const stepLabels = ["Tu", "L’Egitto", "I dettagli", "Riepilogo"];
+const travelStyles = ["Solo hotel", "Transfer", "Escursioni", "Tutto a terra"];
 
 export default function ContactJourney() {
   const [step, setStep] = useState(1);
@@ -81,10 +81,10 @@ export default function ContactJourney() {
     <section className={styles.formSection} id="richiesta" aria-labelledby="form-title">
       <div className={styles.formIntro}>
         <span className={styles.kickerLight}>Iniziamo da qui</span>
-        <h2 id="form-title">Raccontaci il viaggio che hai in mente.</h2>
+        <h2 id="form-title">Raccontaci il tuo Egitto ideale.</h2>
         <p>
-          Bastano pochi dettagli. Li useremo per capire davvero cosa cerchi e costruire una proposta
-          che abbia senso per te.
+          Bastano pochi dettagli per costruire una proposta Solo Land precisa. Il volo non è incluso:
+          ci concentriamo su tutto ciò che ti aspetta una volta arrivato.
         </p>
 
         <ol className={styles.formSteps} aria-label={`Passaggio ${step} di 4`}>
@@ -131,7 +131,7 @@ export default function ContactJourney() {
             <span className={styles.successEyebrow}>Richiesta ricevuta</span>
             <h3>Grazie, {data.name.split(" ")[0]}!</h3>
             <p>
-              Il tuo viaggio ha appena mosso il primo passo. Ti ricontatteremo usando i recapiti che ci hai indicato.
+              La tua richiesta per l’Egitto è con noi. Ti ricontatteremo usando i recapiti che ci hai indicato.
             </p>
             <div className={styles.successSummary}>
               <span>Destinazione</span>
@@ -190,21 +190,27 @@ export default function ContactJourney() {
             {step === 2 && (
               <fieldset className={styles.formPanel} key="dream">
                 <legend>
-                  <span>Il tuo prossimo viaggio</span>
-                  <strong>Dove vuoi sentirti altrove?</strong>
+                  <span>Il tuo soggiorno in Egitto</span>
+                  <strong>Qual è la tua zona ideale?</strong>
                 </legend>
                 <label className={styles.fieldWide}>
-                  <span>Destinazione desiderata *</span>
-                  <input
-                    type="text"
+                  <span>Zona desiderata *</span>
+                  <select
                     value={data.destination}
                     onChange={(event) => update("destination", event.target.value)}
-                    placeholder="Una meta precisa oppure: sorprendetemi"
                     required
-                  />
+                  >
+                    <option value="">Seleziona una zona</option>
+                    <option>Hurghada</option>
+                    <option>Sahl Hasheesh</option>
+                    <option>Makadi Bay</option>
+                    <option>Soma Bay</option>
+                    <option>El Gouna</option>
+                    <option>Consigliatemi voi</option>
+                  </select>
                 </label>
                 <div className={styles.choiceGroup}>
-                  <span>Che tipo di esperienza immagini? *</span>
+                  <span>Di quali servizi hai bisogno? *</span>
                   <div>
                     {travelStyles.map((style) => (
                       <button
@@ -253,10 +259,10 @@ export default function ContactJourney() {
                     <span>Budget indicativo *</span>
                     <select value={data.budget} onChange={(event) => update("budget", event.target.value)} required>
                       <option value="">Seleziona una fascia</option>
-                      <option>Fino a €1.500</option>
-                      <option>€1.500 – €3.000</option>
-                      <option>€3.000 – €5.000</option>
-                      <option>Oltre €5.000</option>
+                      <option>Fino a €500</option>
+                      <option>€500 – €1.000</option>
+                      <option>€1.000 – €2.000</option>
+                      <option>Oltre €2.000</option>
                       <option>Da definire insieme</option>
                     </select>
                   </label>
@@ -266,7 +272,7 @@ export default function ContactJourney() {
                   <textarea
                     value={data.message}
                     onChange={(event) => update("message", event.target.value)}
-                    placeholder="Aeroporto di partenza, occasioni speciali, esigenze o desideri..."
+                    placeholder="Numero del volo, hotel desiderato, bambini, escursioni o esigenze particolari..."
                     rows={5}
                   />
                 </label>

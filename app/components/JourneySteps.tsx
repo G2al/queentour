@@ -1,16 +1,55 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styles from "./JourneySteps.module.css";
 
 export default function JourneySteps() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22, rootMargin: "0px 0px -8%" },
+    );
+
+    observer.observe(section);
+    const firstFrame = requestAnimationFrame(() => {
+      const bounds = section.getBoundingClientRect();
+      if (bounds.top < window.innerHeight * 0.94 && bounds.bottom > 0) setVisible(true);
+    });
+    const fallback = window.setTimeout(() => setVisible(true), 1400);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(firstFrame);
+      window.clearTimeout(fallback);
+    };
+  }, []);
+
   return (
-    <section className={styles.section} id="come-funziona" aria-labelledby="journey-steps-title">
+    <section
+      className={`${styles.section} ${styles.motionReady} ${visible ? styles.visible : ""}`}
+      id="come-funziona"
+      aria-labelledby="journey-steps-title"
+      ref={sectionRef}
+    >
       <div className={styles.heading}>
-        <span className={styles.eyebrow}>Viaggiare con Queen Tour</span>
-        <h2 id="journey-steps-title">Il tuo viaggio, reso semplice!</h2>
+        <span className={styles.eyebrow}>Solo Land · tre servizi, una regia</span>
+        <h2 id="journey-steps-title">L’Egitto, reso semplice.</h2>
         <p>
-          Dalla scelta della destinazione alla partenza: creiamo esperienze su misura,
-          pensate per farti viaggiare senza pensieri.
+          Il volo lo scegli tu. Dal momento in cui atterri, possiamo occuparci di tutto
+          ciò che rende speciale e sereno il tuo soggiorno.
         </p>
       </div>
 
@@ -24,15 +63,15 @@ export default function JourneySteps() {
           </span>
           <div className={styles.sideContent}>
             <span className={styles.number}>01</span>
-            <h3>Trova la tua<br />destinazione</h3>
+            <h3>Transfer<br />senza attese</h3>
           </div>
         </article>
 
         <article className={`${styles.stepCard} ${styles.featuredCard}`}>
           <div className={styles.photo}>
             <Image
-              src="/images/thailandia.jpg"
-              alt="Mare cristallino e barche tradizionali in Thailandia"
+              src="/images/egypt-hotel.png"
+              alt="Resort selezionato a Hurghada"
               fill
               sizes="(max-width: 700px) 44vw, 180px"
             />
@@ -47,13 +86,13 @@ export default function JourneySteps() {
 
           <div className={styles.featuredContent}>
             <span className={styles.number}>02</span>
-            <h3>Prenota il<br />tuo viaggio</h3>
+            <h3>Scegli il<br />tuo hotel</h3>
             <p>
-              Raccontaci come immagini la tua vacanza. Il team Queen Tour costruirà
-              la proposta perfetta per te.
+              Dal resort family al soggiorno premium: troviamo la struttura giusta
+              per il tuo modo di vivere Hurghada.
             </p>
             <Link className={styles.learnMore} href="/pacchetti">
-              Scopri i pacchetti
+              Scopri i soggiorni
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M14 7l5 5-5 5" />
               </svg>
@@ -70,7 +109,7 @@ export default function JourneySteps() {
           </span>
           <div className={styles.sideContent}>
             <span className={styles.number}>03</span>
-            <h3>Paga e<br />parti sereno</h3>
+            <h3>Vivi le<br />escursioni</h3>
           </div>
         </article>
       </div>

@@ -17,6 +17,16 @@
   min-width: 0;
 }
 
+.eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--brand-bronze);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
 .title {
   margin: 0;
   color: #101316;
@@ -82,12 +92,12 @@
 }
 
 .next:hover {
-  background: #0788f5;
-  border-color: #0788f5;
+  background: var(--brand-bronze);
+  border-color: var(--brand-bronze);
 }
 
 .control:focus-visible {
-  outline: 3px solid rgb(7 136 245 / 25%);
+  outline: 3px solid rgb(var(--brand-bronze-rgb) / 25%);
   outline-offset: 3px;
 }
 
@@ -119,7 +129,7 @@
 }
 
 .card:focus-visible {
-  outline: 3px solid rgb(7 136 245 / 30%);
+  outline: 3px solid rgb(var(--brand-bronze-rgb) / 30%);
   outline-offset: 5px;
   border-radius: 19px;
 }
@@ -136,6 +146,24 @@
 .imageWrap img {
   object-fit: cover;
   transition: transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.cardBadge {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  left: 14px;
+  min-height: 27px;
+  padding: 7px 11px 0;
+  border-radius: 999px;
+  color: var(--brand-deep-dark);
+  background: rgb(255 255 255 / 91%);
+  box-shadow: 0 7px 16px rgb(0 0 0 / 9%);
+  backdrop-filter: blur(8px);
+  font-size: 9px;
+  font-weight: 780;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
 .card:hover .imageWrap img {
@@ -192,10 +220,10 @@
   padding: 0 10px;
   border-radius: 999px;
   color: #ffffff;
-  background: #168ff2;
+  background: var(--brand-bronze);
   font-size: 10px;
   font-weight: 700;
-  box-shadow: 0 6px 13px rgb(22 143 242 / 18%);
+  box-shadow: 0 6px 13px rgb(var(--brand-bronze-rgb) / 20%);
 }
 
 .rating svg {
@@ -256,7 +284,7 @@
 }
 
 .closeButton:focus-visible {
-  outline: 3px solid rgb(7 136 245 / 30%);
+  outline: 3px solid rgb(var(--brand-bronze-rgb) / 30%);
   outline-offset: 3px;
 }
 
@@ -298,7 +326,7 @@
   padding: 0 13px;
   border-radius: 999px;
   color: #ffffff;
-  background: #168ff2;
+  background: var(--brand-bronze);
   font-size: 12px;
   font-weight: 750;
   box-shadow: 0 8px 20px rgb(0 0 0 / 16%);
@@ -316,7 +344,7 @@
 
 .modalEyebrow {
   margin: 0 0 10px;
-  color: #0788f5;
+  color: var(--brand-bronze);
   font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.09em;
@@ -420,6 +448,16 @@
   stroke-width: 2.3;
 }
 
+.flightNote {
+  margin: 18px 0 0;
+  padding: 10px 13px;
+  border-radius: 10px;
+  color: #7a5b2e;
+  background: var(--brand-cream-soft);
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .quoteButton {
   display: flex;
   align-items: center;
@@ -429,8 +467,8 @@
   padding: 0 19px;
   border-radius: 999px;
   color: #ffffff;
-  background: linear-gradient(135deg, #169fff, #087ee8);
-  box-shadow: 0 10px 24px rgb(3 126 230 / 24%);
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-bronze-dark));
+  box-shadow: 0 10px 24px rgb(var(--brand-bronze-rgb) / 24%);
   font-size: 12px;
   font-weight: 750;
   text-decoration: none;
@@ -438,12 +476,12 @@
 }
 
 .quoteButton:hover {
-  box-shadow: 0 14px 28px rgb(3 126 230 / 34%);
+  box-shadow: 0 14px 28px rgb(var(--brand-bronze-rgb) / 34%);
   transform: translateY(-2px);
 }
 
 .quoteButton:focus-visible {
-  outline: 3px solid rgb(7 136 245 / 30%);
+  outline: 3px solid rgb(var(--brand-bronze-rgb) / 30%);
   outline-offset: 3px;
 }
 
@@ -535,6 +573,8 @@
     max-width: 220px;
     font-size: 13px;
   }
+
+  .eyebrow { font-size: 11px; }
 
   .controls {
     gap: 8px;

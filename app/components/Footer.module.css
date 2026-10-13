@@ -4,7 +4,8 @@
   padding: 78px clamp(35px, 6vw, 98px) 0;
   scroll-margin-top: 30px;
   border-radius: 28px;
-  background: #f7f8fa;
+  color: #fff;
+  background: #1d3e45;
 }
 
 .content {
@@ -26,13 +27,13 @@
 
 .logo {
   display: block;
-  width: 158px;
+  width: 132px;
   height: auto;
 }
 
 .brand p {
   margin: 20px 0 0;
-  color: #727a80;
+  color: rgb(255 255 255 / 64%);
   font-size: 13px;
   line-height: 1.65;
 }
@@ -50,24 +51,24 @@
   height: 31px;
   place-items: center;
   border-radius: 50%;
-  color: #172027;
-  background: #ffffff;
-  box-shadow: 0 6px 15px rgb(25 54 72 / 7%);
+  color: #e5c47f;
+  background: rgb(255 255 255 / 8%);
+  box-shadow: 0 6px 15px rgb(17 45 51 / 18%);
   cursor: pointer;
   transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .socials > span:hover {
   color: #ffffff;
-  background: #0788f5;
-  box-shadow: 0 9px 20px rgb(7 136 245 / 24%);
+  background: #b8792c;
+  box-shadow: 0 9px 20px rgb(184 121 44 / 24%);
   transform: translateY(-2px);
 }
 
 .socials .facebook {
   color: #ffffff;
-  background: #168ff2;
-  box-shadow: 0 7px 16px rgb(22 143 242 / 22%);
+  background: #b8792c;
+  box-shadow: 0 7px 16px rgb(184 121 44 / 24%);
 }
 
 .socials svg {
@@ -98,7 +99,7 @@
 
 .column h2 {
   margin: 4px 0 23px;
-  color: #111519;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 760;
   letter-spacing: -0.015em;
@@ -107,7 +108,7 @@
 .column a,
 .column > span {
   margin-bottom: 14px;
-  color: #60686d;
+  color: rgb(255 255 255 / 62%);
   font-size: 12px;
   line-height: 1.35;
   text-decoration: none;
@@ -124,18 +125,18 @@
 }
 
 .column a:hover {
-  color: #0788f5;
+  color: #e5c47f;
   transform: translateX(3px);
 }
 
 .column > span:hover {
-  color: #0788f5;
+  color: #e5c47f;
   transform: translateX(3px);
 }
 
 .column a:focus-visible,
 .logoLink:focus-visible {
-  outline: 3px solid rgb(7 136 245 / 24%);
+  outline: 3px solid rgb(212 166 80 / 42%);
   outline-offset: 4px;
   border-radius: 3px;
 }
@@ -148,8 +149,8 @@
   width: min(100%, 1360px);
   min-height: 68px;
   margin: 0 auto;
-  border-top: 1px solid #e9ecef;
-  color: #9aa1a6;
+  border-top: 1px solid rgb(255 255 255 / 11%);
+  color: rgb(255 255 255 / 42%);
   font-size: 10px;
 }
 
@@ -197,7 +198,7 @@
   }
 
   .logo {
-    width: 145px;
+    width: 118px;
   }
 
   .column:last-child {

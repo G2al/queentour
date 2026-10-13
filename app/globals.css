@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
+  --brand-deep: #1d3e45;
+  --brand-deep-dark: #112d33;
+  --brand-deep-soft: #31555c;
+  --brand-bronze: #b8792c;
+  --brand-bronze-dark: #8f5b20;
+  --brand-gold: #d4a650;
+  --brand-gold-light: #e5c47f;
+  --brand-cream: #f5eee2;
+  --brand-cream-soft: #fbf8f2;
+  --brand-bronze-rgb: 184 121 44;
+  --brand-deep-rgb: 29 62 69;
 }
 
 * {

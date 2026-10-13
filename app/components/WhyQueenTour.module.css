@@ -13,9 +13,9 @@
   border-radius: 34px;
   background:
     radial-gradient(circle at 11% 10%, rgb(255 255 255 / 34%), transparent 27%),
-    radial-gradient(circle at 72% 92%, rgb(8 113 212 / 18%), transparent 34%),
-    linear-gradient(135deg, #9bdcff 0%, #74c5f5 52%, #8cd4fa 100%);
-  box-shadow: 0 30px 70px rgb(44 137 194 / 15%);
+    radial-gradient(circle at 72% 92%, rgb(var(--brand-deep-rgb) / 18%), transparent 34%),
+    linear-gradient(135deg, var(--brand-cream) 0%, var(--brand-gold-light) 52%, var(--brand-gold-light) 100%);
+  box-shadow: 0 30px 70px rgb(var(--brand-deep-rgb) / 15%);
 }
 
 .content::before,
@@ -60,7 +60,7 @@
   padding: 0 13px;
   border: 1px solid rgb(255 255 255 / 50%);
   border-radius: 999px;
-  color: #075da8;
+  color: var(--brand-bronze-dark);
   background: rgb(255 255 255 / 27%);
   font-size: 9px;
   font-weight: 750;
@@ -95,7 +95,7 @@
   padding: 0 20px 0 23px;
   border-radius: 999px;
   color: #ffffff;
-  background: #10171c;
+  background: var(--brand-deep);
   box-shadow: 0 11px 25px rgb(8 40 62 / 20%);
   font-size: 11px;
   font-weight: 750;
@@ -181,8 +181,8 @@
   height: 46px;
   place-items: center;
   border-radius: 12px;
-  color: #0788f5;
-  background: #eaf6ff;
+  color: var(--brand-bronze);
+  background: var(--brand-cream);
 }
 
 .icon svg {

@@ -189,7 +189,11 @@
 .resetButton:hover:not(:disabled) { border-color: var(--brand-bronze); color: var(--brand-bronze); background: var(--brand-cream-soft); }
 .resetButton:disabled { cursor: not-allowed; opacity: .42; }
 
-.resultsColumn { min-width: 0; }
+.resultsColumn { position: relative; min-width: 0; transition: opacity 180ms ease; }
+.resultsLoading { opacity: .56; pointer-events: none; }
+
+.error { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 18px; padding: 15px 17px; border: 1px solid #f0cfc8; border-radius: 13px; color: #7c3025; background: #fff7f5; font-size: 13px; }
+.error button { border: 0; color: #fff; background: var(--brand-deep); padding: 9px 13px; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; }
 
 .resultsBar {
   display: flex;
@@ -419,6 +423,8 @@
   font-size: 24px;
   letter-spacing: -.03em;
 }
+
+.price .grossPrice { grid-column: 1 / -1; margin-top: 3px; color: var(--brand-bronze-dark); font-weight: 700; }
 
 .detailsButton {
   display: flex;

@@ -7,15 +7,25 @@ import PackagesCarousel from "./components/PackagesCarousel";
 import PartnerBar from "./components/PartnerBar";
 import ReviewsSection from "./components/ReviewsSection";
 import WhyQueenTour from "./components/WhyQueenTour";
+import { getServerPackages } from "@/lib/server-api";
+import type { TravelPackage } from "./data/travelPackages";
 
-export default function Home() {
+export default async function Home() {
+  let packages: TravelPackage[] = [];
+  let packagesError = false;
+  try {
+    const response = await getServerPackages({ featured: 1, per_page: 6, sort: "recommended" });
+    packages = response.data;
+  } catch {
+    packagesError = true;
+  }
   return (
     <>
       <Header />
       <main>
         <Hero />
         <PartnerBar />
-        <PackagesCarousel />
+        <PackagesCarousel packages={packages} loadError={packagesError} />
         <JourneySteps />
         <WhyQueenTour />
         <ReviewsSection />

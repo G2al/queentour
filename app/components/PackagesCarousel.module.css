@@ -115,6 +115,9 @@
   display: none;
 }
 
+.catalogMessage { display:flex; min-height:220px; align-items:center; justify-content:center; gap:6px; border:1px dashed #dfe5e8; border-radius:20px; color:#7b858a; background:#fafbfb; font-size:14px; }
+.catalogMessage a { color:var(--brand-bronze-dark); font-weight:750; }
+
 .card {
   flex: 0 0 calc((100% - (clamp(18px, 1.7vw, 28px) * 2)) / 3);
   min-width: 0;

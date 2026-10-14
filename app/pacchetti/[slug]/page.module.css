@@ -54,6 +54,8 @@
 .location { display: flex; align-items: center; gap: 7px; margin: 17px 0 0; color: #687177; font-size: 13px; }
 .location svg { width: 15px; fill: none; stroke: var(--brand-bronze); stroke-width: 1.8; }
 .description { margin: 24px 0 0; color: #5e686e; font-size: 15px; line-height: 1.7; }
+.description p { margin: 0; }
+.description p + p { margin-top: 12px; }
 .quickFacts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 27px; }
 .quickFacts div { display: flex; min-height: 68px; flex-direction: column; gap: 6px; padding: 13px 15px; border: 1px solid #e4eaed; border-radius: 13px; background: #fff; }
 .quickFacts span,.priceRow span { color: #91999e; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
@@ -63,6 +65,7 @@
 .priceRow > div span { grid-column: 1/-1; }
 .priceRow strong { font-size: 28px; letter-spacing: -.04em; }
 .priceRow small { color: #8b9499; font-size: 10px; }
+.priceRow .publicPrice { grid-column: 1 / -1; margin-top: 5px; color: var(--brand-bronze-dark); font-weight: 750; }
 .priceRow .rating { display: flex; align-items: center; gap: 5px; color: #596268; font-size: 11px; letter-spacing: 0; text-transform: none; }
 .rating svg { width: 12px; fill: var(--brand-bronze); }
 
@@ -117,6 +120,24 @@
 .included span { color: #10a755; background: #e8f8ef; }
 .excluded span { color: #8a9297; background: #f0f2f3; }
 
+.priceListIntro { max-width: 680px; margin: 16px 0 0; color: #6a7479; font-size: 14px; line-height: 1.6; }
+.periods { display: grid; gap: 15px; margin-top: 28px; }
+.periodCard { overflow: hidden; border: 1px solid #e6ebee; border-radius: 18px; background: #fff; box-shadow: 0 12px 32px rgb(29 62 69 / 6%); }
+.periodCard header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 20px; background: #f6f8f8; }
+.periodCard header > div { display: flex; flex-direction: column; gap: 5px; }
+.periodCard header span { color: var(--brand-bronze); font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.periodCard header strong { color: #273036; font-size: 13px; }
+.periodCard header em { padding: 7px 10px; border-radius: 999px; color: #fff; background: var(--brand-deep); font-size: 9px; font-style: normal; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+.tariffs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; background: #edf0f1; }
+.tariff { display: flex; min-height: 95px; flex-direction: column; justify-content: center; gap: 5px; padding: 16px 20px; background: #fff; }
+.tariff span { color: #8c959a; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
+.tariff strong { color: #11181c; font-size: 20px; }
+.tariff small { color: var(--brand-bronze-dark); font-size: 10px; font-weight: 700; }
+.policy { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 27px; }
+.policy > div { padding: 23px; border-radius: 17px; background: #f6f8f9; }
+.policy h3 { margin: 0 0 12px; font-size: 17px; }
+.policy p { margin: 5px 0 0; color: #687278; font-size: 13px; line-height: 1.6; }
+
 .sidebar { position: sticky; top: 116px; align-self: start; padding: 32px; border: 1px solid #e8edef; border-radius: 23px; background: #fff; box-shadow: 0 20px 55px rgb(26 64 87 / 10%); }
 .sidebar h2 { margin: 11px 0 0; font-size: 25px; line-height: 1.08; letter-spacing: -.035em; }
 .sidebar > p { margin: 15px 0 0; color: #727b80; font-size: 13px; line-height: 1.6; }
@@ -139,6 +160,7 @@
   .heroContent { padding: 45px 35px; }
   .pageGrid { grid-template-columns: minmax(0,1fr) 310px; }
   .highlights { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .tariffs { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 
 @media (max-width: 760px) {
@@ -176,6 +198,9 @@
   .sidebar > small { font-size: 11px; }
   .morePackages > div span { font-size: 11px; }
   .morePackages > a { font-size: 14px; }
+  .priceListIntro,.policy p { font-size: 15px; }
+  .tariff span { font-size: 11px; }
+  .tariff small { font-size: 12px; }
 }
 
 @media (max-width: 430px) {
@@ -191,6 +216,8 @@
   .timelineMarker { left: -48px; width: 38px; height: 38px; border-width: 4px; font-size: 10px; }
   .timelineLabel { grid-column: 1 / -1; }
   .timelinePanel p { padding: 0 50px 20px 18px; }
+  .tariffs,.policy { grid-template-columns: 1fr; }
+  .periodCard header { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

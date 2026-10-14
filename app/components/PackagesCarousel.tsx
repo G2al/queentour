@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { travelPackages } from "@/app/data/travelPackages";
+import type { TravelPackage } from "@/app/data/travelPackages";
 import styles from "./PackagesCarousel.module.css";
 
-export default function PackagesCarousel() {
+export default function PackagesCarousel({ packages, loadError = false }: { packages: TravelPackage[]; loadError?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const [activePackage, setActivePackage] = useState<(typeof travelPackages)[number] | null>(null);
+  const [activePackage, setActivePackage] = useState<TravelPackage | null>(null);
 
   useEffect(() => {
     if (!activePackage) return;
@@ -52,8 +52,8 @@ export default function PackagesCarousel() {
         </div>
       </div>
 
-      <div className={styles.track} ref={trackRef}>
-        {travelPackages.map((travelPackage) => (
+      {loadError ? <div className={styles.catalogMessage}>Le proposte non sono disponibili in questo momento. <Link href="/pacchetti">Riprova dal catalogo</Link></div> : packages.length === 0 ? <div className={styles.catalogMessage}>Nuove proposte in arrivo.</div> : <div className={styles.track} ref={trackRef}>
+        {packages.map((travelPackage) => (
           <button className={styles.card} key={travelPackage.slug} type="button" onClick={() => setActivePackage(travelPackage)} aria-label={`Scopri ${travelPackage.title}`}>
             <div className={styles.imageWrap}>
               <Image src={travelPackage.image} alt={travelPackage.title} fill sizes="(max-width: 680px) 84vw, (max-width: 1024px) 45vw, 30vw" />
@@ -64,11 +64,11 @@ export default function PackagesCarousel() {
                 <h3>{travelPackage.title}</h3>
                 <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
               </div>
-              <span className={styles.rating} aria-label={`Valutazione ${travelPackage.rating} su 5`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" /></svg>{travelPackage.rating.toFixed(1)}</span>
+              {travelPackage.price !== null && <span className={styles.rating}>{new Intl.NumberFormat("it-IT", { style: "currency", currency: travelPackage.currency, maximumFractionDigits: 0 }).format(travelPackage.price)}</span>}
             </div>
           </button>
         ))}
-      </div>
+      </div>}
 
       {activePackage && (
         <div className={styles.modalBackdrop} role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setActivePackage(null)}>
@@ -76,7 +76,7 @@ export default function PackagesCarousel() {
             <button className={styles.closeButton} type="button" onClick={() => setActivePackage(null)} ref={closeButtonRef} aria-label="Chiudi i dettagli"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
             <div className={styles.modalImage}>
               <Image src={activePackage.image} alt={activePackage.title} fill sizes="(max-width: 760px) 92vw, 46vw" />
-              <span className={styles.modalRating}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" /></svg>{activePackage.rating.toFixed(1)}</span>
+              {activePackage.badge && <span className={styles.modalRating}>{activePackage.badge}</span>}
             </div>
             <div className={styles.modalContent}>
               <p className={styles.modalEyebrow}>{activePackage.type} · Solo Land</p>
@@ -85,7 +85,7 @@ export default function PackagesCarousel() {
               <p className={styles.modalDescription}>{activePackage.description}</p>
               <div className={styles.packageFacts}>
                 <div><span>Durata</span><strong>{activePackage.days === 1 ? "1 giorno" : `${activePackage.days} giorni / ${activePackage.nights} notti`}</strong></div>
-                <div><span>Formula</span><strong>{activePackage.board}</strong></div>
+                {activePackage.board && <div><span>Formula</span><strong>{activePackage.board}</strong></div>}
               </div>
               <div className={styles.included}><span>La proposta include</span><ul>{activePackage.included.slice(0, 4).map((item) => <li key={item}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>{item}</li>)}</ul></div>
               <p className={styles.flightNote}>Volo dall’Italia non incluso.</p>

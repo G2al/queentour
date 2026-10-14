@@ -1,0 +1,5 @@
+.page { width:min(calc(100% - 24px),800px); margin:80px auto 110px; padding:75px 40px; border:1px solid #e4e9eb; border-radius:29px; background:#f7f9f9; text-align:center; }
+.page span { color:var(--brand-bronze); font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+.page h1 { margin:15px 0 0; color:#11181c; font-size:clamp(38px,6vw,68px); line-height:.98; letter-spacing:-.055em; }
+.page p { max-width:570px; margin:20px auto 0; color:#6e787d; line-height:1.65; }
+.page a { display:inline-flex; min-height:49px; align-items:center; margin-top:28px; padding:0 20px; border-radius:999px; color:#fff; background:var(--brand-deep); font-size:13px; font-weight:750; text-decoration:none; }

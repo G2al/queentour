@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PackageCatalog from "./PackageCatalog";
+import { getServerPackageFilters, getServerPackages } from "@/lib/server-api";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
   description: "Scopri i servizi Solo Land Queen Tour a Hurghada: soggiorni in hotel, trasferimenti privati ed escursioni sul Mar Rosso.",
 };
 
-export default function PackagesPage() {
+export default async function PackagesPage() {
+  const [packages, filters] = await Promise.all([
+    getServerPackages({ per_page: 100, sort: "recommended" }),
+    getServerPackageFilters(),
+  ]);
   return (
     <main>
       <section className={styles.hero} aria-labelledby="packages-page-title">
@@ -40,7 +45,7 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <PackageCatalog />
+      <PackageCatalog initialData={packages} filterOptions={filters} />
 
       <section className={styles.customTrip} aria-label="Egitto su misura">
         <div>

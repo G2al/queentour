@@ -1,0 +1,13 @@
+.loading { width: min(calc(100% - clamp(32px,5vw,96px)),1500px); margin: 0 auto; padding-bottom: 100px; }
+.hero,.heading,.filters,.card { position: relative; overflow: hidden; background: #edf1f2; }
+.hero::after,.heading::after,.filters::after,.card::after { position:absolute; inset:0; background:linear-gradient(100deg,transparent 20%,rgb(255 255 255 / 75%) 50%,transparent 80%); content:""; animation:shine 1.25s infinite; transform:translateX(-100%); }
+.hero { height: 520px; border-radius: 34px; }
+.heading { width: 42%; height: 60px; margin: 80px 0 35px; border-radius: 14px; }
+.layout { display:grid; grid-template-columns:310px 1fr; gap:30px; }
+.filters { height:560px; border-radius:23px; }
+.cards { display:grid; grid-template-columns:repeat(2,1fr); gap:25px; }
+.card { height:570px; border-radius:23px; }
+@keyframes shine { to { transform:translateX(100%); } }
+@media(max-width:850px){.layout{display:block}.filters{height:55px;margin-bottom:20px}.hero{height:430px}}
+@media(max-width:700px){.loading{width:calc(100% - 24px)}.cards{grid-template-columns:1fr}.heading{width:75%}}
+@media(prefers-reduced-motion:reduce){.hero::after,.heading::after,.filters::after,.card::after{animation:none}}

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { TravelPackage } from "@/app/data/travelPackages";
+import OfferFeatures from "./booking/OfferFeatures";
+import { offerPriceCaption } from "@/lib/offers";
 import { money } from "@/lib/format";
 import styles from "./PackagesCarousel.module.css";
 
@@ -45,7 +47,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
         <div>
           <span className={styles.eyebrow}>Vivi Hurghada a modo tuo</span>
           <h2 className={styles.title} id="packages-title">Il meglio del Mar Rosso</h2>
-          <p className={styles.subtitle}>Soggiorni, transfer ed esperienze selezionate. Sempre Solo Land.</p>
+          <p className={styles.subtitle}>Soggiorni, transfer ed esperienze selezionate. Con o senza volo.</p>
         </div>
         <div className={styles.controls} aria-label="Controlli del carosello">
           <button className={`${styles.control} ${styles.previous}`} type="button" onClick={() => moveCarousel(-1)} aria-label="Proposte precedenti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5" /></svg></button>
@@ -65,8 +67,10 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
                 <h3>{travelPackage.title}</h3>
                 <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
               </div>
-              {travelPackage.price !== null && <span className={styles.rating}>{money(travelPackage.price, travelPackage.currency)}</span>}
+              <span className={styles.rating}>{travelPackage.price == null ? "Prezzo su richiesta" : money(travelPackage.price, travelPackage.currency)}</span>
             </div>
+            <OfferFeatures product={travelPackage} />
+            {travelPackage.price != null && <p className={styles.priceCaption}>{offerPriceCaption(travelPackage)}</p>}
           </button>
         ))}
       </div>}
@@ -80,7 +84,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
               {activePackage.badge && <span className={styles.modalRating}>{activePackage.badge}</span>}
             </div>
             <div className={styles.modalContent}>
-              <p className={styles.modalEyebrow}>{activePackage.type} · Solo Land</p>
+              <p className={styles.modalEyebrow}>{activePackage.type}</p>
               <h2 id="package-modal-title">{activePackage.title}</h2>
               <p className={styles.modalLocation}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{activePackage.location}</p>
               <p className={styles.modalDescription}>{activePackage.description}</p>
@@ -89,7 +93,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
                 {activePackage.board && <div><span>Formula</span><strong>{activePackage.board}</strong></div>}
               </div>
               <div className={styles.included}><span>La proposta include</span><ul>{activePackage.included.slice(0, 4).map((item) => <li key={item}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>{item}</li>)}</ul></div>
-              <p className={styles.flightNote}>Volo dall’Italia non incluso.</p>
+              <OfferFeatures product={activePackage} /><p className={styles.flightNote}>{offerPriceCaption(activePackage)}</p>
               <Link className={styles.quoteButton} href={`/pacchetti/${activePackage.slug}`}>Scopri tutti i dettagli<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg></Link>
             </div>
           </div>

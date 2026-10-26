@@ -60,7 +60,7 @@ export default function Hero({ filterOptions }: { filterOptions: PackageFilters 
         <form action="/pacchetti#catalogo" method="get" className={styles.form}>
           <fieldset className={styles.services}><legend className={styles.srOnly}>Quale servizio cerchi?</legend>
             <label className={service === "" ? styles.selected : ""}><input type="radio" name="type" value="" checked={service === ""} onChange={() => setService("")} /><span>Tutte le proposte</span></label>
-            {filterOptions?.types.map((type) => <label key={type} className={service === type ? styles.selected : ""}><input type="radio" name="type" value={type} checked={service === type} onChange={() => setService(type)} /><span>{type === "Soggiorno" ? "Hotel e soggiorni" : type === "Transfer" ? "Trasferimenti" : "Escursioni"}</span></label>)}
+            {filterOptions?.types.map((type) => <label key={type.key} className={service === type.key ? styles.selected : ""}><input type="radio" name="type" value={type.key} checked={service === type.key} onChange={() => setService(type.key)} /><span>{type.label}</span></label>)}
           </fieldset>
           <div className={styles.fields}>
             <CustomSelect variant="hero" label="Destinazione" name="destination" options={[{ value: "", label: "Dove vuoi andare?" }, ...(filterOptions?.destinations ?? []).map((item) => ({ value: item.slug, label: item.name }))]} />

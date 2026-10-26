@@ -1,4 +1,5 @@
-export type PackageType = "Soggiorno" | "Transfer" | "Escursione";
+export type PackageType = "Solo soggiorno" | "Volo + hotel" | "Pacchetto completo" | "Transfer" | "Escursione";
+export type OfferKey = "hotel_only" | "flight_hotel" | "full_package" | "transfer" | "excursion";
 export type PriceUnit = "per_person" | "per_service";
 export type BookingMode = "hotel_only" | "flight_hotel" | "excursion" | "transfer";
 export type AgencyFee = { percent: number; amount: number; netPrice: number };
@@ -60,7 +61,11 @@ export type TravelPackage = {
   image: string;
   gallery?: string[];
   type: PackageType;
-  typeKey: "stay" | "transfer" | "excursion";
+  typeKey: OfferKey;
+  category: "stay" | "transfer" | "excursion";
+  flightIncluded: boolean;
+  flightOptional: boolean;
+  transferIncluded: boolean;
   price: number | null;
   pricePerNight?: number | null;
   agencyFee?: AgencyFee | null;
@@ -99,7 +104,8 @@ export type TravelPackage = {
 
 export type PackageFilters = {
   destinations: { name: string; slug: string; country: string }[];
-  types: PackageType[];
+  types: { key: OfferKey; label: PackageType }[];
+  airports: { code: string; city: string }[];
   departures: string[];
   boards: string[];
   days: number[];

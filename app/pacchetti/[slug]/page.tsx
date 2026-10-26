@@ -7,6 +7,8 @@ import { ApiError } from "@/lib/api";
 import { getServerPackage } from "@/lib/server-api";
 import ItinerarySteps from "./ItinerarySteps";
 import styles from "./page.module.css";
+import OfferFeatures from "@/app/components/booking/OfferFeatures";
+import { isStayOffer } from "@/lib/offers";
 import PackagePrice from "@/app/components/booking/PackagePrice";
 import BookingConfigurator from "@/app/components/booking/BookingConfigurator";
 import { money, italianDate } from "@/lib/format";
@@ -32,7 +34,7 @@ function PeriodPrice({ label, amount, currency, fallback }: { label: string; amo
 }
 
 function PriceList({ periods, travelPackage }: { periods: PackagePeriod[]; travelPackage: TravelPackage }) {
-  return <section className={styles.block}><span className={styles.sectionEyebrow}>Listino al pubblico</span><h2>Periodi e quote disponibili</h2><p className={styles.priceListIntro}>{travelPackage.type === "Soggiorno" ? "Quote a persona a notte. Il totale del soggiorno, con eventuali supplementi e volo, viene verificato nel configuratore." : travelPackage.priceUnit === "per_service" ? "Quota unica a servizio per il gruppo." : "Quote a persona per il servizio."}</p><div className={styles.periods}>{periods.map((period) => <article className={styles.periodCard} key={period.id}><header><div><span>{period.name}</span><strong>{formatDate(period.startDate)} — {formatDate(period.endDate)}</strong></div></header><div className={styles.tariffs}><PeriodPrice label={travelPackage.priceUnit === "per_service" ? "Servizio" : "Adulto"} amount={period.adultPrice} currency={travelPackage.currency} fallback="Su richiesta" />{travelPackage.priceUnit === "per_person" && <><PeriodPrice label="3°/4° letto adulto" amount={period.extraBedAdultPrice} currency={travelPackage.currency} fallback="Quota base" /><PeriodPrice label="Bambino" amount={period.childPrice} currency={travelPackage.currency} fallback="Quota base" /><PeriodPrice label="Infant" amount={period.infantPrice} currency={travelPackage.currency} fallback="Gratuito" /><PeriodPrice label="Supplemento singola" amount={period.singleSupplement} currency={travelPackage.currency} fallback="Non previsto" /></>}</div></article>)}</div></section>;
+  return <section className={styles.block}><span className={styles.sectionEyebrow}>Listino al pubblico</span><h2>Periodi e quote disponibili</h2><p className={styles.priceListIntro}>{isStayOffer(travelPackage) ? "Quote a persona a notte. Il totale del soggiorno, con eventuali supplementi e volo, viene verificato nel configuratore." : travelPackage.priceUnit === "per_service" ? "Quota unica a servizio per il gruppo." : "Quote a persona per il servizio."}</p><div className={styles.periods}>{periods.map((period) => <article className={styles.periodCard} key={period.id}><header><div><span>{period.name}</span><strong>{formatDate(period.startDate)} — {formatDate(period.endDate)}</strong></div></header><div className={styles.tariffs}><PeriodPrice label={travelPackage.priceUnit === "per_service" ? "Servizio" : "Adulto"} amount={period.adultPrice} currency={travelPackage.currency} fallback="Su richiesta" />{travelPackage.priceUnit === "per_person" && <><PeriodPrice label="3°/4° letto adulto" amount={period.extraBedAdultPrice} currency={travelPackage.currency} fallback="Quota base" /><PeriodPrice label="Bambino" amount={period.childPrice} currency={travelPackage.currency} fallback="Quota base" /><PeriodPrice label="Infant" amount={period.infantPrice} currency={travelPackage.currency} fallback="Gratuito" /><PeriodPrice label="Supplemento singola" amount={period.singleSupplement} currency={travelPackage.currency} fallback="Non previsto" /></>}</div></article>)}</div></section>;
 }
 
 export default async function PackageDetailPage({ params }: PageProps<"/pacchetti/[slug]">) {
@@ -47,6 +49,7 @@ export default async function PackageDetailPage({ params }: PageProps<"/pacchett
         <nav className={styles.breadcrumb} aria-label="Percorso"><Link href="/">Home</Link><span>/</span><Link href="/pacchetti">Egitto</Link><span>/</span><span>{travelPackage.destination}</span></nav>
         <span className={styles.eyebrow}>{travelPackage.type} · {travelPackage.country}</span>
         <h1>{travelPackage.title}</h1>
+        <OfferFeatures product={travelPackage} />
         <p className={styles.location}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
         <div className={styles.description}>{descriptionParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         <div className={styles.quickFacts}>

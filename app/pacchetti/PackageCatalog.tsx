@@ -6,11 +6,12 @@ import { useEffect, useRef, useState } from "react";
 import type { PackageFilters, PaginatedPackages } from "@/app/data/travelPackages";
 import styles from "./PackageCatalog.module.css";
 import CustomSelect from "@/app/components/CustomSelect";
+import OfferFeatures from "@/app/components/booking/OfferFeatures";
 import PackagePrice from "@/app/components/booking/PackagePrice";
 import { money } from "@/lib/format";
 
-type FiltersState = { search: string; destination: string; type: string; maxPrice: string; days: string; departure: string; board: string; date: string };
-const initialFilters: FiltersState = { search: "", destination: "", type: "", maxPrice: "", days: "", departure: "", board: "", date: "" };
+type FiltersState = { search: string; destination: string; type: string; airport: string; maxPrice: string; days: string; departure: string; board: string; date: string };
+const initialFilters: FiltersState = { search: "", destination: "", type: "", airport: "", maxPrice: "", days: "", departure: "", board: "", date: "" };
 const formatPrice = money;
 
 export default function PackageCatalog({ initialData, filterOptions, selectedFilters }: { initialData: PaginatedPackages; filterOptions: PackageFilters; selectedFilters?: Partial<FiltersState> }) {
@@ -57,7 +58,8 @@ export default function PackageCatalog({ initialData, filterOptions, selectedFil
           <div className={styles.filterHeading}><div><span>La tua vacanza in Egitto</span><h3>Filtra i servizi</h3></div>{activeFilters > 0 && <span className={styles.activeCount}>{activeFilters}</span>}</div>
           <label className={styles.field}><span>Cerca</span><div className={styles.inputWrap}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4 4" /></svg><input value={filters.search} onChange={(event) => updateFilter("search", event.target.value)} placeholder="Hurghada, hotel, escursione..." type="search" /></div></label>
           <div className={styles.field}><span>Destinazione</span><CustomSelect label="Destinazione" value={filters.destination} onChange={(value) => updateFilter("destination", value)} options={[{ value: "", label: "Tutte" }, ...filterOptions.destinations.map((item) => ({ value: item.slug, label: item.name }))]} /></div>
-          <div className={styles.field}><span>Tipologia</span><CustomSelect label="Tipologia" value={filters.type} onChange={(value) => updateFilter("type", value)} options={[{ value: "", label: "Tutte" }, ...filterOptions.types.map((type) => ({ value: type, label: type }))]} /></div>
+          <div className={styles.field}><span>Tipologia</span><CustomSelect label="Tipologia" value={filters.type} onChange={(value) => updateFilter("type", value)} options={[{ value: "", label: "Tutte" }, ...filterOptions.types.map((type) => ({ value: type.key, label: type.label }))]} /></div>
+          <div className={styles.field}><span>Partenza da</span><CustomSelect label="Partenza da" value={filters.airport} onChange={(value) => updateFilter("airport", value)} options={[{ value: "", label: "Tutti gli aeroporti" }, ...(filterOptions.airports ?? []).map((airport) => ({ value: airport.code, label: `${airport.city} (${airport.code})` }))]} /></div>
           <div className={styles.field}><span>Budget massimo</span><CustomSelect label="Budget massimo" value={filters.maxPrice} onChange={(value) => updateFilter("maxPrice", value)} options={[{ value: "", label: "Qualsiasi" }, ...budgetOptions.map((price) => ({ value: String(price), label: `Fino a ${formatPrice(price)}` }))]} /></div>
           <label className={styles.field}><span>Data di partenza</span><input className={styles.dateInput} type="date" value={filters.date} onChange={(event) => updateFilter("date", event.target.value)} /></label>
           <div className={styles.field}><span>Durata</span><CustomSelect label="Durata" value={filters.days} onChange={(value) => updateFilter("days", value)} options={[{ value: "", label: "Qualsiasi durata" }, ...filterOptions.days.map((days) => ({ value: String(days), label: days === 1 ? "1 giorno" : `${days} giorni` }))]} /></div>
@@ -73,6 +75,7 @@ export default function PackageCatalog({ initialData, filterOptions, selectedFil
               <Link className={styles.imageWrap} href={`/pacchetti/${item.slug}`} aria-label={`Scopri ${item.title}`}><Image src={item.image} alt={item.title} fill sizes="(max-width: 700px) 92vw, (max-width: 1050px) 46vw, 31vw" />{item.badge && <span className={styles.badge}>{item.badge}</span>}</Link>
               <div className={styles.cardContent}>
                 <div className={styles.cardHeading}><div><span>{item.type} · {item.country}</span><h3><Link href={`/pacchetti/${item.slug}`}>{item.title}</Link></h3></div></div>
+                <OfferFeatures product={item} />
                 <p className={styles.description}>{item.description}</p>
                 <div className={styles.facts}>
                   <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 7v5l3 2" /></svg>{item.days === 1 ? "Esperienza giornaliera" : `${item.days} giorni / ${item.nights} notti`}</span>

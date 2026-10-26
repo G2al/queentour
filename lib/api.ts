@@ -3,7 +3,7 @@ import type { Booking, BookingList, BookingRequest, CartQuote, CartRequest, Insu
 
 export type PackageQuery = {
   search?: string; destination?: string; type?: string; days?: number | string;
-  min_days?: number | string; max_days?: number | string; departure?: string;
+  min_days?: number | string; max_days?: number | string; departure?: string; airport?: string;
   board?: string; min_price?: number | string; max_price?: number | string;
   date?: string; featured?: boolean | 0 | 1;
   sort?: "recommended" | "price_asc" | "price_desc" | "duration" | "newest";
@@ -72,13 +72,13 @@ export function getBookings(params: { page?: number; status?: string } = {}, tok
 export async function changeBooking(code: string, action: "option" | "confirm" | "cancel", payload: { terms_accepted?: boolean; passengers?: Passenger[] }, token?: string | null, bookingToken?: string) { return (await apiRequest<{ data: Booking }>(`/bookings/${encodeURIComponent(code)}/${action}`, { method: "POST", body: JSON.stringify(payload), token, headers: bookingToken ? { "X-Booking-Token": bookingToken } : undefined, cache: "no-store" })).data; }
 
 export function getPackages(params: PackageQuery = {}, token?: string | null) {
-  return apiRequest<PaginatedPackages>(`/packages${queryString(params)}`, { token });
+  return apiRequest<PaginatedPackages>(`/packages${queryString(params)}`, { token, cache: "no-store" });
 }
 export async function getPackageFilters(token?: string | null) {
-  return (await apiRequest<{ data: PackageFilters }>("/packages/filters", { token })).data;
+  return (await apiRequest<{ data: PackageFilters }>("/packages/filters", { token, cache: "no-store" })).data;
 }
 export async function getPackage(slug: string, token?: string | null) {
-  return (await apiRequest<{ data: TravelPackage }>(`/packages/${encodeURIComponent(slug)}`, { token })).data;
+  return (await apiRequest<{ data: TravelPackage }>(`/packages/${encodeURIComponent(slug)}`, { token, cache: "no-store" })).data;
 }
 export function loginAgency(payload: { email: string; password: string }) {
   return apiRequest<AuthResponse>("/auth/login", { method: "POST", body: JSON.stringify(payload), cache: "no-store" });

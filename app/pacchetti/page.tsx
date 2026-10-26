@@ -16,12 +16,12 @@ export default async function PackagesPage({ searchParams }: PageProps<"/pacchet
   const selectedFilters = {
     search: read("search"), destination: read("destination"), type: read("type"),
     maxPrice: read("max_price"), days: read("days"), departure: read("departure"),
-    board: read("board"), date: read("date"),
+    board: read("board"), date: read("date"), airport: read("airport"),
   };
   const [packages, filters] = await Promise.all([
     getServerPackages({
       per_page: 100, sort: "recommended", search: selectedFilters.search,
-      destination: selectedFilters.destination, type: selectedFilters.type,
+      destination: selectedFilters.destination, type: selectedFilters.type, airport: selectedFilters.airport,
       days: selectedFilters.days, departure: selectedFilters.departure,
       board: selectedFilters.board, date: selectedFilters.date, max_price: selectedFilters.maxPrice,
     }),

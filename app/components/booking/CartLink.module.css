@@ -1,2 +1,15 @@
 .link { position:relative; display:grid; width:38px; height:38px; flex:0 0 38px; place-items:center; border:1px solid rgb(255 255 255 / 25%); border-radius:50%; color:#fff; background:rgb(255 255 255 / 9%); text-decoration:none; }
 .link svg { width:19px; fill:none; stroke:currentcolor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8; }.link span { position:absolute; top:-5px; right:-4px; display:grid; width:18px; height:18px; place-items:center; border-radius:50%; color:#18334d; background:#ffe39a; font-size:10px; font-weight:800; }.link:hover { background:rgb(255 255 255 / 20%); }
+.cartPulse { animation:cartBounce 650ms cubic-bezier(.22,1,.36,1); }
+.countPulse { animation:countBounce 550ms cubic-bezier(.22,1,.36,1); }
+.noticeRegion { position:fixed; z-index:1300; top:112px; right:24px; width:min(390px,calc(100vw - 32px)); pointer-events:none; }
+.toast { display:flex; align-items:flex-start; gap:13px; padding:18px; border:1px solid #b9e3d2; border-radius:20px; background:#fff; box-shadow:0 16px 55px rgb(20 70 80 / 19%); color:#254b5e; pointer-events:auto; animation:toastIn 450ms cubic-bezier(.22,1,.36,1) both; }
+.toast > div { min-width:0; flex:1; }.toast strong { display:block; font-size:15px; }.toast p { margin:6px 0 10px; font-size:13px; line-height:1.5; overflow-wrap:anywhere; }.toast a { color:#0876ab; font-size:13px; font-weight:750; text-decoration:underline; text-underline-offset:3px; }
+.toast > button { display:grid; place-items:center; width:28px; height:28px; flex:0 0 28px; padding:0; border:0; border-radius:50%; color:#5b7680; background:#f0f6f7; font-size:22px; cursor:pointer; }
+.checkmark { display:grid; place-items:center; width:38px; height:38px; flex:0 0 38px; border-radius:50%; color:#16815e; background:#e8f8f0; }.checkmark svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }.checkmark path { stroke-dasharray:28; animation:drawCheck 500ms 100ms both; }
+@keyframes toastIn { from { opacity:0; transform:translateY(-15px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes cartBounce { 35% { transform:translateY(-5px) rotate(-12deg); } 65% { transform:rotate(8deg); } }
+@keyframes countBounce { 40% { transform:scale(1.4); } }
+@keyframes drawCheck { from { stroke-dashoffset:28; } to { stroke-dashoffset:0; } }
+@media(max-width:600px){.noticeRegion{top:auto;bottom:calc(22px + env(safe-area-inset-bottom));right:16px}.toast{padding:16px}}
+@media(prefers-reduced-motion:reduce){.cartPulse,.countPulse,.toast,.checkmark path{animation:none}}

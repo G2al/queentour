@@ -141,7 +141,7 @@
 .policy h3 { margin: 0 0 12px; font-size: 17px; }
 .policy p { margin: 5px 0 0; color: #687278; font-size: 13px; line-height: 1.6; }
 
-.sidebar { position: sticky; top: 116px; align-self: start; padding: 32px; border: 1px solid #e8edef; border-radius: 23px; background: #fff; box-shadow: 0 20px 55px rgb(26 64 87 / 10%); }
+.sidebar { position: sticky; top: 116px; align-self: start; min-width:0; max-width:100%; padding: 32px; border: 1px solid #e8edef; border-radius: 23px; background: #fff; box-shadow: 0 20px 55px rgb(26 64 87 / 10%); }
 .sidebar h2 { margin: 11px 0 0; font-size: 25px; line-height: 1.08; letter-spacing: -.035em; }
 .sidebar > p { margin: 15px 0 0; color: #727b80; font-size: 13px; line-height: 1.6; }
 .sidebar dl { margin: 24px 0 0; }
@@ -174,7 +174,7 @@
   .heroContent h1 { font-size: 45px; }
   .priceRow { align-items: flex-start; flex-direction: column; }
   .pageGrid { display: flex; width: calc(100% - 24px); flex-direction: column; margin: 65px auto 75px; }
-  .sidebar { position: static; order: -1; }
+  .sidebar { position: static; order: -1; width:100%; padding:24px 18px; }
   .servicesBlock { grid-template-columns: 1fr; }
   .servicesBlock > div + div { padding: 35px 0 0; border-top: 1px solid #e9edef; border-left: 0; }
   .morePackages { display: block; width: calc(100% - 24px); margin-bottom: 70px; padding: 35px 27px; }

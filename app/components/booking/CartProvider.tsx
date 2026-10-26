@@ -1,11 +1,14 @@
 "use client";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import styles from "./CartLink.module.css";
 import { usePathname } from "next/navigation";
 import type { CartState } from "@/lib/booking-types";
 import { CART_KEY, EMPTY_CART, readCart } from "@/lib/cart";
 import type { AgencyUser } from "@/app/data/travelPackages";
 
-type CartContextValue = { cart: CartState; setCart: (cart: CartState) => void; ready: boolean; storageError: string; agency: boolean | null; sessionVersion: number };
+type CartNotice = { id: string; title: string; updated: boolean };
+type CartContextValue = { cart: CartState; setCart: (cart: CartState) => void; ready: boolean; storageError: string; agency: boolean | null; sessionVersion: number; cartNotice: CartNotice | null; notifyCart: (title: string, updated: boolean) => void };
 const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -14,6 +17,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [storageError, setStorageError] = useState("");
   const [agency, setAgency] = useState<boolean | null>(null);
   const [sessionVersion, setSessionVersion] = useState(0);
+  const [cartNotice, setCartNotice] = useState<CartNotice | null>(null);
+  useEffect(() => {
+    if (!cartNotice) return;
+    const timer = window.setTimeout(() => setCartNotice(null), 5500);
+    return () => window.clearTimeout(timer);
+  }, [cartNotice]);
   useEffect(() => {
     try { updateCart(readCart(localStorage.getItem(CART_KEY))); } catch { setStorageError("Non è stato possibile recuperare il carrello salvato. Puoi crearne uno nuovo."); }
     setReady(true);
@@ -42,6 +51,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     try { localStorage.setItem(CART_KEY, JSON.stringify(next)); setStorageError(""); }
     catch { setStorageError("Il browser non consente di salvare il carrello: resterà disponibile soltanto in questa sessione."); }
   };
-  return <CartContext.Provider value={{ cart, setCart, ready, storageError, agency, sessionVersion }}>{children}</CartContext.Provider>;
+  const notifyCart = (title: string, updated: boolean) => setCartNotice({ id: crypto.randomUUID(), title, updated });
+  return <CartContext.Provider value={{ cart, setCart, ready, storageError, agency, sessionVersion, cartNotice, notifyCart }}>{children}<div className={styles.noticeRegion} role="status" aria-live="polite" aria-atomic="true">{cartNotice && <div className={styles.toast} key={cartNotice.id}><span className={styles.checkmark} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10" /></svg></span><div><strong>{cartNotice.updated ? "Carrello aggiornato" : "Aggiunto al carrello"}</strong><p>{cartNotice.title}</p><Link href="/carrello" onClick={() => setCartNotice(null)}>Vai al carrello →</Link></div><button type="button" onClick={() => setCartNotice(null)} aria-label="Chiudi conferma carrello">×</button></div>}</div></CartContext.Provider>;
 }
 export function useCart() { const context = useContext(CartContext); if (!context) throw new Error("CartProvider mancante"); return context; }

@@ -12,12 +12,17 @@ export function offerModes(product: Pick<TravelPackage, "typeKey" | "bookingMode
   return allowed.filter((mode) => product.bookingModes?.includes(mode));
 }
 
-export function offerPriceCaption(product: Pick<TravelPackage, "typeKey" | "nights">): string {
-  switch (product.typeKey) {
-    case "hotel_only": return `a persona · ${product.nights} notti (volo escluso)`;
-    case "flight_hotel": return "a persona · volo + hotel";
-    case "full_package": return "a persona · volo, hotel e transfer";
-    case "transfer": return "a servizio";
-    case "excursion": return "a persona";
+export function offerPriceCaption(product: Pick<TravelPackage, "priceBasis" | "flightIncluded" | "transferIncluded" | "nights">): string {
+  switch (product.priceBasis) {
+    case "per_night": return "a notte";
+    case "per_person": return product.flightIncluded
+      ? `a persona · hotel + volo per ${product.nights} ${product.nights === 1 ? "notte" : "notti"}${product.transferIncluded ? " · transfer incluso" : ""}`
+      : "a persona";
+    case "per_service": return "a servizio";
   }
+}
+
+export function offerDuration(product: Pick<TravelPackage, "typeKey" | "nights" | "days">): string {
+  if (product.typeKey === "hotel_only") return product.nights > 1 ? `Minimo ${product.nights} notti` : "Scegli tu le date";
+  return product.days === 1 ? "Esperienza giornaliera" : `${product.days} giorni / ${product.nights} ${product.nights === 1 ? "notte" : "notti"}`;
 }

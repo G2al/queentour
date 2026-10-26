@@ -2,6 +2,8 @@
 
 Adeguamento al contratto aggiornato di `API.md`, sezioni 1 e 3. La logica usa `typeKey`; `type` rimane l’etichetta mostrata. Tutti gli importi arrivano dal backend, senza sommare il volo al prezzo di catalogo.
 
+Aggiornamento quote: `priceBasis` determina il testo. `per_night` mostra «da X € a notte» (quota a persona), `per_person` «da X € a persona», `per_service` «X € a servizio». Per il solo soggiorno `price` non rappresenta più il totale di più notti. `nights` indica il minimo: con valore 1 si mostra «Scegli tu le date», altrimenti «Minimo N notti». Con volo si mostrano hotel + volo e le notti della combinazione più conveniente. Nessun importo viene moltiplicato nel frontend. `docs/API.md` è stato ricopiato integralmente dal repository Laravel aggiornato.
+
 ## File modificati e creati
 
 - `app/data/travelPackages.ts`: cinque offerte, categoria, flag inclusioni, filtri con chiavi/etichette e aeroporti.
@@ -19,7 +21,7 @@ Adeguamento al contratto aggiornato di `API.md`, sezioni 1 e 3. La logica usa `t
 - `scripts/verify-offers-api.mjs`, `scripts/verify-offers-browser.mjs` (nuovi): verifiche senza creazione pratiche o invio email.
 - Questo documento.
 
-`docs/API.md` era già stato aggiornato e fornito prima dell’intervento: non è stato riscritto dal frontend.
+`docs/API.md` proviene dal contratto del backend; la copia frontend è sincronizzata con quella del repository Laravel.
 
 ## Come provare le cinque offerte
 
@@ -40,7 +42,7 @@ Su un’offerta con volo senza partenze, devono comparire “Nessuna partenza di
 ## Verifiche eseguite
 
 - Build di produzione e TypeScript superati.
-- 14 test unitari superati, inclusi i test precedenti del carrello.
+- 15 test unitari superati, inclusi i test precedenti del carrello e le nuove unità di prezzo/durate.
 - API locali: preventivi reali per solo soggiorno, aggiunta del volo facoltativo, pacchetto completo, escursione e transfer; filtro combinato offerta/aeroporto verificato sui voli del dettaglio.
 - Browser: ricerca homepage, filtri da URL e interattivi, quattro offerte reali presenti, layout a 390 px senza overflow e nessuna eccezione JavaScript.
 - Il catalogo locale non contiene una proposta autonoma `flight_hotel`: il relativo configuratore è stato verificato con fixture nel solo browser, senza alterare prodotti del backend. Con lo stesso metodo verificato il caso senza partenze.

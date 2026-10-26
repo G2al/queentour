@@ -8,6 +8,7 @@ import styles from "./PackageCatalog.module.css";
 import CustomSelect from "@/app/components/CustomSelect";
 import OfferFeatures from "@/app/components/booking/OfferFeatures";
 import PackagePrice from "@/app/components/booking/PackagePrice";
+import { offerDuration } from "@/lib/offers";
 import { money } from "@/lib/format";
 
 type FiltersState = { search: string; destination: string; type: string; airport: string; maxPrice: string; days: string; departure: string; board: string; date: string };
@@ -78,7 +79,7 @@ export default function PackageCatalog({ initialData, filterOptions, selectedFil
                 <OfferFeatures product={item} />
                 <p className={styles.description}>{item.description}</p>
                 <div className={styles.facts}>
-                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 7v5l3 2" /></svg>{item.days === 1 ? "Esperienza giornaliera" : `${item.days} giorni / ${item.nights} notti`}</span>
+                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 7v5l3 2" /></svg>{offerDuration(item)}</span>
                   {item.departures.length > 0 && <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h16M7 17h10M9 7h6l2 6H7l2-6Z" /></svg>Da {item.departures.join(", ")}</span>}
                   {item.period && <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5zM8 3v4M16 3v4M5 9h14" /></svg>{item.period}</span>}
                   {item.board && <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v10H4zM7 8V6h10v2M8 13h8" /></svg>{item.board}</span>}

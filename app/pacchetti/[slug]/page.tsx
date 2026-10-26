@@ -8,7 +8,7 @@ import { getServerPackage } from "@/lib/server-api";
 import ItinerarySteps from "./ItinerarySteps";
 import styles from "./page.module.css";
 import OfferFeatures from "@/app/components/booking/OfferFeatures";
-import { isStayOffer } from "@/lib/offers";
+import { isStayOffer, offerDuration } from "@/lib/offers";
 import PackagePrice from "@/app/components/booking/PackagePrice";
 import BookingConfigurator from "@/app/components/booking/BookingConfigurator";
 import { money, italianDate } from "@/lib/format";
@@ -53,7 +53,7 @@ export default async function PackageDetailPage({ params }: PageProps<"/pacchett
         <p className={styles.location}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
         <div className={styles.description}>{descriptionParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         <div className={styles.quickFacts}>
-          <div><span>Durata</span><strong>{travelPackage.days === 1 ? "Esperienza giornaliera" : `${travelPackage.days} giorni / ${travelPackage.nights} notti`}</strong></div>
+          <div><span>Durata</span><strong>{offerDuration(travelPackage)}</strong></div>
           {travelPackage.period && <div><span>Periodo</span><strong>{travelPackage.period}</strong></div>}
           {travelPackage.departures.length > 0 && <div><span>Punto di incontro</span><strong>{travelPackage.departures.join(", ")}</strong></div>}
           {travelPackage.stay && <div><span>Sistemazione</span><strong>{travelPackage.stay}</strong></div>}

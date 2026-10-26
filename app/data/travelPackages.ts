@@ -1,6 +1,7 @@
 export type PackageType = "Solo soggiorno" | "Volo + hotel" | "Pacchetto completo" | "Transfer" | "Escursione";
 export type OfferKey = "hotel_only" | "flight_hotel" | "full_package" | "transfer" | "excursion";
 export type PriceUnit = "per_person" | "per_service";
+export type PriceBasis = "per_night" | "per_person" | "per_service";
 export type BookingMode = "hotel_only" | "flight_hotel" | "excursion" | "transfer";
 export type AgencyFee = { percent: number; amount: number; netPrice: number };
 export type RoomType = { id: number; name: string; description?: string | null; maxOccupancy: number; supplementPerNight: number };
@@ -67,6 +68,7 @@ export type TravelPackage = {
   flightOptional: boolean;
   transferIncluded: boolean;
   price: number | null;
+  priceBasis: PriceBasis;
   pricePerNight?: number | null;
   agencyFee?: AgencyFee | null;
   bookingModes: BookingMode[];

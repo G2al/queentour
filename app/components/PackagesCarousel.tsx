@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { TravelPackage } from "@/app/data/travelPackages";
 import OfferFeatures from "./booking/OfferFeatures";
-import { offerPriceCaption } from "@/lib/offers";
+import { offerPriceCaption, offerDuration } from "@/lib/offers";
 import { money } from "@/lib/format";
 import styles from "./PackagesCarousel.module.css";
 
@@ -67,7 +67,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
                 <h3>{travelPackage.title}</h3>
                 <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
               </div>
-              <span className={styles.rating}>{travelPackage.price == null ? "Prezzo su richiesta" : money(travelPackage.price, travelPackage.currency)}</span>
+              <span className={styles.rating}>{travelPackage.price == null ? "Prezzo su richiesta" : `${travelPackage.priceBasis === "per_service" ? "" : "da "}${money(travelPackage.price, travelPackage.currency)}`}</span>
             </div>
             <OfferFeatures product={travelPackage} />
             {travelPackage.price != null && <p className={styles.priceCaption}>{offerPriceCaption(travelPackage)}</p>}
@@ -89,7 +89,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
               <p className={styles.modalLocation}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{activePackage.location}</p>
               <p className={styles.modalDescription}>{activePackage.description}</p>
               <div className={styles.packageFacts}>
-                <div><span>Durata</span><strong>{activePackage.days === 1 ? "1 giorno" : `${activePackage.days} giorni / ${activePackage.nights} notti`}</strong></div>
+                <div><span>Durata</span><strong>{offerDuration(activePackage)}</strong></div>
                 {activePackage.board && <div><span>Formula</span><strong>{activePackage.board}</strong></div>}
               </div>
               <div className={styles.included}><span>La proposta include</span><ul>{activePackage.included.slice(0, 4).map((item) => <li key={item}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>{item}</li>)}</ul></div>

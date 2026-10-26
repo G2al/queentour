@@ -64,7 +64,7 @@ try {
       assert.ok(await evaluate("document.querySelectorAll('[role=option]').length>1"));
     } else if (key==='hotel_only') {
       assert.equal(await evaluate("document.querySelectorAll('input[type=date]').length"),2);
-      assert.ok(await evaluate("document.body.innerText.includes('(volo escluso)')"));
+      assert.ok(await evaluate("document.body.innerText.includes('Quota a persona') && document.body.innerText.includes('volo escluso')"));
       await evaluate("[...document.querySelectorAll('button[role=combobox]')].find(e=>e.firstElementChild?.textContent==='Modalità').click()");
       await evaluate("[...document.querySelectorAll('[role=option]')].find(e=>e.innerText==='Con volo').click()");
       assert.equal(await evaluate("document.querySelectorAll('input[type=date]').length"),0);

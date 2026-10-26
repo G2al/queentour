@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { offerModes, isStayOffer, offerPriceCaption } from "../lib/offers.ts";
+import { offerModes, isStayOffer, offerPriceCaption, offerDuration } from "../lib/offers.ts";
 
 test("solo soggiorno: il volo si può aggiungere soltanto se facoltativo e abilitato", () => {
   const stay = { typeKey: "hotel_only", bookingModes: ["hotel_only", "flight_hotel"], flightOptional: false };
@@ -22,10 +22,16 @@ for (const typeKey of ["excursion", "transfer"]) {
     assert.equal(isStayOffer(product), false);
   });
 }
-test("prezzi delle cinque offerte: volo escluso/incluso e quota a servizio", () => {
-  assert.equal(offerPriceCaption({ typeKey: "hotel_only", nights: 7 }), "a persona · 7 notti (volo escluso)");
-  assert.equal(offerPriceCaption({ typeKey: "flight_hotel" }), "a persona · volo + hotel");
-  assert.equal(offerPriceCaption({ typeKey: "full_package" }), "a persona · volo, hotel e transfer");
-  assert.equal(offerPriceCaption({ typeKey: "excursion" }), "a persona");
-  assert.equal(offerPriceCaption({ typeKey: "transfer" }), "a servizio");
+test("priceBasis determina l’unità, il volo conserva le notti abbinate", () => {
+  assert.equal(offerPriceCaption({ priceBasis: "per_night", nights: 3 }), "a notte");
+  assert.equal(offerPriceCaption({ priceBasis: "per_person", flightIncluded: true, nights: 7 }), "a persona · hotel + volo per 7 notti");
+  assert.equal(offerPriceCaption({ priceBasis: "per_person", flightIncluded: true, transferIncluded: true, nights: 4 }), "a persona · hotel + volo per 4 notti · transfer incluso");
+  assert.equal(offerPriceCaption({ priceBasis: "per_person", flightIncluded: false }), "a persona");
+  assert.equal(offerPriceCaption({ priceBasis: "per_service" }), "a servizio");
+});
+test("solo soggiorno: durata libera o minima, mai durata fissa", () => {
+  assert.equal(offerDuration({ typeKey: "hotel_only", nights: 1, days: 2 }), "Scegli tu le date");
+  assert.equal(offerDuration({ typeKey: "hotel_only", nights: 3, days: 4 }), "Minimo 3 notti");
+  assert.equal(offerDuration({ typeKey: "flight_hotel", nights: 7, days: 8 }), "8 giorni / 7 notti");
+  assert.equal(offerDuration({ typeKey: "excursion", nights: 0, days: 1 }), "Esperienza giornaliera");
 });

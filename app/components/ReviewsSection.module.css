@@ -2,7 +2,7 @@
   width: 100%;
   padding: 62px 0 105px;
   overflow: hidden;
-  background: linear-gradient(180deg, #fbfcfd 0%, #ffffff 100%);
+  background: radial-gradient(ellipse at 10% 10%, #eafaff, transparent 55%), linear-gradient(180deg, #fffcf6, #fff);
 }
 
 .heading {

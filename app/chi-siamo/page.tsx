@@ -63,12 +63,12 @@ export default function AboutPage() {
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>Da Aversa a Hurghada</span>
             <h1 id="about-title">
-              Non vendiamo tutto il mondo.
-              <span>Conosciamo davvero l’Egitto.</span>
+              Il nostro cuore
+              <span>è in Egitto.</span>
             </h1>
             <p>
-              Siamo specialisti Solo Land: selezioniamo hotel, coordiniamo trasferimenti
-              e scegliamo esperienze autentiche a Hurghada e sul Mar Rosso.
+              Hotel, transfer ed esperienze sul Mar Rosso.
+              Con la cura di chi conosce questi luoghi.
             </p>
             <div className={styles.heroActions}>
               <Link href="/pacchetti">
@@ -125,8 +125,8 @@ export default function AboutPage() {
               una destinazione che vogliamo conoscere nelle sue zone, strutture e possibilità reali.
             </p>
             <p>
-              Non includiamo il volo e non nascondiamo questa scelta. Ci occupiamo bene di ciò che avviene
-              a terra: soggiorno, trasferimenti, escursioni e assistenza.
+              Puoi scegliere un soggiorno, una proposta volo + hotel e i servizi che preferisci:
+              trasferimenti, escursioni e assistenza, coordinati in un’unica pratica.
             </p>
             <a href="https://www.google.com/maps/search/?api=1&query=Via+Roma+Aversa+CE" target="_blank" rel="noreferrer">
               Vieni a trovarci ad Aversa
@@ -168,11 +168,11 @@ export default function AboutPage() {
             <blockquote>“Il tuo Egitto comincia quando atterri.”</blockquote>
           </div>
           <div className={styles.experienceCopy}>
-            <span className={styles.eyebrow}>La formula Solo Land</span>
-            <h2>Il volo è tuo. Tutto il resto può essere nostro.</h2>
+            <span className={styles.eyebrow}>La formula che scegli tu</span>
+            <h2>Con o senza volo, il viaggio è tuo.</h2>
             <p>
-              Prenoti il volo che preferisci e noi costruiamo ciò che ti aspetta in Egitto.
-              Più libertà per te, più attenzione sui servizi che conosciamo davvero.
+              Scegli il solo soggiorno oppure una proposta volo + hotel disponibile nel catalogo.
+              Aggiungi transfer ed escursioni per vivere l’Egitto come preferisci.
             </p>
             <ul>
               <li><span>01</span><div><strong>Il tuo hotel</strong><p>Selezionato per zona, stile, servizi e budget.</p></div></li>

@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111111;
-  --brand-deep: #1d3e45;
-  --brand-deep-dark: #112d33;
-  --brand-deep-soft: #31555c;
-  --brand-bronze: #b8792c;
-  --brand-bronze-dark: #8f5b20;
-  --brand-gold: #d4a650;
-  --brand-gold-light: #e5c47f;
-  --brand-cream: #f5eee2;
-  --brand-cream-soft: #fbf8f2;
-  --brand-bronze-rgb: 184 121 44;
-  --brand-deep-rgb: 29 62 69;
+  --background: #fffcf6;
+  --foreground: #18334d;
+  --brand-deep: #087fc4;
+  --brand-deep-dark: #075e94;
+  --brand-deep-soft: #119bc7;
+  --brand-bronze: #ae7211;
+  --brand-bronze-dark: #895b12;
+  --brand-gold: #f4bc32;
+  --brand-gold-light: #ffe5a0;
+  --brand-cream: #fff3d7;
+  --brand-cream-soft: #fffaf0;
+  --brand-bronze-rgb: 174 114 17;
+  --brand-deep-rgb: 8 127 196;
+  --brand-aqua: #22c5d6;
+  --brand-sky: #edf9ff;
+  --brand-ink: #18334d;
+  --brand-action: linear-gradient(135deg, #087fc4, #0568ac);
 }
 
 * {
@@ -42,6 +46,14 @@ a {
 img {
   max-width: 100%;
 }
+
+::selection { color: #18334d; background: #ffe5a0; }
+
+[data-ocean-card] { rotate:var(--ocean-axis-x, 0) var(--ocean-axis-y, 1) 0 var(--ocean-angle, 0deg); transition:rotate 350ms cubic-bezier(.22,1,.36,1),box-shadow 250ms ease; }
+[data-ocean-card]::after { position:absolute; z-index:2; inset:0; border-radius:inherit; background:radial-gradient(circle at var(--ocean-x, 50%) var(--ocean-y, 50%),rgb(255 255 255 / 30%),transparent 62%); content:""; opacity:var(--ocean-glow, 0); pointer-events:none; transition:opacity 250ms ease; }
+.oceanRipple { position:fixed; z-index:2500; width:12px; height:12px; border:2px solid rgb(34 197 214 / 70%); border-radius:50%; background:rgb(34 197 214 / 12%); pointer-events:none; animation:oceanRipple 650ms ease-out forwards; }
+@keyframes oceanRipple { from{opacity:.75;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,-50%) scale(9)} }
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-ocean-card]{rotate:none;transition:none}.oceanRipple{display:none}}
 
 @media (max-width: 760px) {
   html {

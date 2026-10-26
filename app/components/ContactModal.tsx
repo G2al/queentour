@@ -62,7 +62,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     event.preventDefault();
 
     const whatsappMessage = [
-      "Ciao Queen Tour, vorrei richiedere una proposta Solo Land per l’Egitto.",
+      "Ciao Queen Tour, vorrei richiedere una proposta per l’Egitto.",
       "",
       `Nome: ${data.name}`,
       `Telefono: ${data.phone}`,

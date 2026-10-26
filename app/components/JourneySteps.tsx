@@ -45,16 +45,16 @@ export default function JourneySteps() {
       ref={sectionRef}
     >
       <div className={styles.heading}>
-        <span className={styles.eyebrow}>Solo Land · tre servizi, una regia</span>
+        <span className={styles.eyebrow}>Soggiorni e servizi · una regia</span>
         <h2 id="journey-steps-title">L’Egitto, reso semplice.</h2>
         <p>
-          Il volo lo scegli tu. Dal momento in cui atterri, possiamo occuparci di tutto
-          ciò che rende speciale e sereno il tuo soggiorno.
+          Parti con un soggiorno o scegli una proposta volo + hotel.
+          A terra, arricchisci il viaggio con trasferimenti ed esperienze.
         </p>
       </div>
 
       <div className={styles.steps}>
-        <article className={`${styles.stepCard} ${styles.sideCard}`}>
+        <article className={`${styles.stepCard} ${styles.sideCard}`} data-ocean-card>
           <span className={styles.sideIcon} aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" />
@@ -67,7 +67,7 @@ export default function JourneySteps() {
           </div>
         </article>
 
-        <article className={`${styles.stepCard} ${styles.featuredCard}`}>
+        <article className={`${styles.stepCard} ${styles.featuredCard}`} data-ocean-card>
           <div className={styles.photo}>
             <Image
               src="/images/egypt-hotel.png"
@@ -100,7 +100,7 @@ export default function JourneySteps() {
           </div>
         </article>
 
-        <article className={`${styles.stepCard} ${styles.sideCard}`}>
+        <article className={`${styles.stepCard} ${styles.sideCard}`} data-ocean-card>
           <span className={styles.sideIcon} aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M5 8h14v10H5zM8 8V6.5A2.5 2.5 0 0 1 10.5 4h3A2.5 2.5 0 0 1 16 6.5V8" />

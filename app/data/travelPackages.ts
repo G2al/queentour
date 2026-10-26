@@ -1,6 +1,14 @@
 export type PackageType = "Soggiorno" | "Transfer" | "Escursione";
 export type PriceUnit = "per_person" | "per_service";
-export type PriceType = "gross" | "net";
+export type BookingMode = "hotel_only" | "flight_hotel" | "excursion" | "transfer";
+export type AgencyFee = { percent: number; amount: number; netPrice: number };
+export type RoomType = { id: number; name: string; description?: string | null; maxOccupancy: number; supplementPerNight: number };
+export type Flight = {
+  id: number; departureAirport: string; departureAirportName: string; departureCity: string;
+  outboundDate: string; returnDate: string; nights: number; carrier: string | null;
+  outboundDetails?: string | null; returnDetails?: string | null;
+  adultPrice: number; childPrice: number | null; infantPrice: number | null; seatsAvailable: number;
+};
 
 export type ItineraryItem = { day: string; title: string; description: string };
 
@@ -10,26 +18,22 @@ export type PackagePeriod = {
   startDate: string;
   endDate: string;
   adultPrice: number | null;
-  adultPriceGross?: number | null;
   extraBedAdultPrice: number | null;
-  extraBedAdultPriceGross?: number | null;
   childPrice: number | null;
-  childPriceGross?: number | null;
   infantPrice: number | null;
-  infantPriceGross?: number | null;
   singleSupplement: number | null;
-  singleSupplementGross?: number | null;
 };
 
 export type PackageHotel = {
   id: number;
   name: string;
-  slug: string;
+  slug?: string;
   stars: number | null;
   address: string | null;
   description: string | null;
   amenities: string[];
   images: string[];
+  roomTypes: RoomType[];
 };
 
 export type PackageExtra = {
@@ -41,11 +45,8 @@ export type PackageExtra = {
   type?: string;
   typeLabel?: string;
   price?: number | null;
-  priceGross?: number | null;
   adultPrice?: number | null;
-  adultPriceGross?: number | null;
   childPrice?: number | null;
-  childPriceGross?: number | null;
 };
 
 export type TravelPackage = {
@@ -61,9 +62,12 @@ export type TravelPackage = {
   type: PackageType;
   typeKey: "stay" | "transfer" | "excursion";
   price: number | null;
-  priceGross?: number | null;
+  pricePerNight?: number | null;
+  agencyFee?: AgencyFee | null;
+  bookingModes: BookingMode[];
+  minNights?: number;
+  flights?: Flight[];
   priceUnit: PriceUnit;
-  priceType: PriceType;
   currency: string;
   featured: boolean;
   days: number;
@@ -83,9 +87,8 @@ export type TravelPackage = {
   validFrom?: string | null;
   validTo?: string | null;
   hotel?: PackageHotel | null;
-  transfer?: { included: boolean; price: number | null; priceGross?: number | null } | null;
+  transfer?: { included: boolean; price: number | null } | null;
   registrationFee?: number | null;
-  registrationFeeGross?: number | null;
   ageRanges?: Record<string, { min: number; max: number | null }>;
   cancellationPolicy?: string | null;
   notes?: string | null;
@@ -119,6 +122,7 @@ export type PaginatedPackages = {
 
 export type Agency = {
   id: number;
+  fee_percent: number;
   company_name: string;
   vat_number: string;
   tax_code: string | null;

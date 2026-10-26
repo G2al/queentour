@@ -29,7 +29,7 @@
   position: absolute;
   z-index: -2;
   inset: 0;
-  background: linear-gradient(90deg, rgb(251 248 242 / 96%) 0%, rgb(245 238 226 / 80%) 48%, rgb(29 62 69 / 16%) 100%);
+  background: linear-gradient(90deg, rgb(245 252 255 / 96%) 0%, rgb(232 248 255 / 80%) 48%, rgb(34 197 214 / 8%) 100%);
   content: "";
 }
 
@@ -390,7 +390,7 @@
   padding: clamp(50px, 5vw, 78px);
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(155deg, var(--brand-deep-soft) 0%, var(--brand-deep) 65%, var(--brand-deep-dark) 100%);
+  background: radial-gradient(circle at 100% 0%,rgb(34 197 214 / 45%),transparent 55%), linear-gradient(155deg, #087fc4, #0769a3);
 }
 
 .formIntro::before,

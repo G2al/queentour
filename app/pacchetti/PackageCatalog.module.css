@@ -1,4 +1,5 @@
 .catalog {
+  scroll-margin-top: 155px;
   width: min(calc(100% - clamp(32px, 5vw, 96px)), 1500px);
   margin: 0 auto;
   padding: 92px 0 110px;
@@ -129,7 +130,14 @@
   padding: 0 34px 0 13px;
   outline: none;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8792c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E") right 12px center / 18px no-repeat, linear-gradient(145deg,#fff,#fcfaf6);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
+
+.field select:hover { border-color:#cdae7c; box-shadow:0 4px 14px rgb(143 91 32 / 7%); }
+.field select option { color:#283341; background:#fffdf8; }
 
 .inputWrap {
   display: flex;
@@ -190,6 +198,8 @@
 .resetButton:disabled { cursor: not-allowed; opacity: .42; }
 
 .resultsColumn { position: relative; min-width: 0; transition: opacity 180ms ease; }
+.dateInput { width:100%; min-width:0; height:52px; padding:0 13px; border:1px solid #e3e9ed; border-radius:13px; color:#182027; background:#f8fafb; font:inherit; font-size:16px; color-scheme:light; }
+.dateInput:focus { outline:2px solid var(--brand-bronze); outline-offset:2px; }
 .resultsLoading { opacity: .56; pointer-events: none; }
 
 .error { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 18px; padding: 15px 17px; border: 1px solid #f0cfc8; border-radius: 13px; color: #7c3025; background: #fff7f5; font-size: 13px; }
@@ -234,7 +244,11 @@
   font: inherit;
   font-size: 12px;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8792c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E") right 8px center / 16px no-repeat, #fffdf8;
 }
+.resultsBar select:focus-visible { outline:2px solid var(--brand-bronze); outline-offset:3px; }
 
 .grid {
   display: grid;
@@ -520,7 +534,7 @@
   .mobileFilterToggle span { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; color: var(--brand-bronze); background: #fff; font-size: 9px; }
   .catalogLayout { display: block; }
   .filterPanel { position: static; max-height: 0; margin-bottom: 0; padding-block: 0; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(-12px); animation: none; transition: max-height 350ms ease, margin 350ms ease, padding 350ms ease, opacity 220ms ease, transform 300ms ease, visibility 350ms ease; }
-  .filterPanelOpen { max-height: 850px; margin-bottom: 26px; padding-block: 24px; opacity: 1; visibility: visible; transform: translateY(0); }
+  .filterPanelOpen { max-height: 1200px; margin-bottom: 26px; padding-block: 24px; opacity: 1; visibility: visible; transform: translateY(0); }
   .resultsBar { margin-bottom: 20px; }
 }
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { TravelPackage } from "@/app/data/travelPackages";
+import { money } from "@/lib/format";
 import styles from "./PackagesCarousel.module.css";
 
 export default function PackagesCarousel({ packages, loadError = false }: { packages: TravelPackage[]; loadError?: boolean }) {
@@ -64,7 +65,7 @@ export default function PackagesCarousel({ packages, loadError = false }: { pack
                 <h3>{travelPackage.title}</h3>
                 <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>{travelPackage.location}</p>
               </div>
-              {travelPackage.price !== null && <span className={styles.rating}>{new Intl.NumberFormat("it-IT", { style: "currency", currency: travelPackage.currency, maximumFractionDigits: 0 }).format(travelPackage.price)}</span>}
+              {travelPackage.price !== null && <span className={styles.rating}>{money(travelPackage.price, travelPackage.currency)}</span>}
             </div>
           </button>
         ))}

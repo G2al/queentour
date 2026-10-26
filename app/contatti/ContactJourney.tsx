@@ -30,7 +30,7 @@ const initialData: FormData = {
 };
 
 const stepLabels = ["Tu", "L’Egitto", "I dettagli", "Riepilogo"];
-const travelStyles = ["Solo hotel", "Transfer", "Escursioni", "Tutto a terra"];
+const travelStyles = ["Solo hotel", "Volo + hotel", "Transfer", "Escursioni", "Tutto a terra"];
 
 export default function ContactJourney() {
   const [step, setStep] = useState(1);
@@ -83,8 +83,8 @@ export default function ContactJourney() {
         <span className={styles.kickerLight}>Iniziamo da qui</span>
         <h2 id="form-title">Raccontaci il tuo Egitto ideale.</h2>
         <p>
-          Bastano pochi dettagli per costruire una proposta Solo Land precisa. Il volo non è incluso:
-          ci concentriamo su tutto ciò che ti aspetta una volta arrivato.
+          Bastano pochi dettagli per raccontarci il tuo viaggio: hotel, volo + hotel,
+          trasferimenti ed esperienze da scegliere insieme.
         </p>
 
         <ol className={styles.formSteps} aria-label={`Passaggio ${step} di 4`}>

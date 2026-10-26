@@ -14,9 +14,9 @@
   overflow: hidden;
   border-radius: 34px;
   background:
-    radial-gradient(circle at 3% 5%, rgb(255 255 255 / 72%), transparent 28%),
-    radial-gradient(circle at 53% 108%, rgb(var(--brand-bronze-rgb) / 17%), transparent 33%),
-    linear-gradient(135deg, var(--brand-cream-soft) 0%, var(--brand-cream) 52%, #e8d8bd 100%);
+    radial-gradient(circle at 3% 5%, #fff, transparent 45%),
+    radial-gradient(circle at 53% 108%, rgb(244 188 50 / 20%), transparent 33%),
+    linear-gradient(135deg, #eefaff, #d8f6fb 52%, #fff0c7);
   animation: heroEnter 720ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -74,10 +74,10 @@
   max-width: 680px;
   margin: 24px 0 0;
   color: #0b1217;
-  font-size: clamp(58px, 6.1vw, 94px);
-  font-weight: 800;
-  line-height: .89;
-  letter-spacing: -.067em;
+  font-size: clamp(46px, 5vw, 74px);
+  font-weight: 730;
+  line-height: 1.04;
+  letter-spacing: -.045em;
 }
 
 .heroCopy h1 span {
@@ -389,7 +389,7 @@
   margin: 0 auto;
   padding: clamp(60px, 7vw, 110px);
   border-radius: 34px;
-  background: #f6f9fb;
+  background: #edf9ff;
 }
 
 .sectionHeading {
@@ -447,7 +447,7 @@
 
 .methodCard:hover {
   color: #fff;
-  border-color: #11191e;
+  border-color: var(--brand-deep);
   background: var(--brand-deep);
   box-shadow: 0 22px 48px rgb(16 43 59 / 18%);
   transform: translateY(-8px);
@@ -631,8 +631,8 @@
   border-radius: 34px;
   color: #fff;
   background:
-    radial-gradient(circle at 82% 10%, rgb(212 166 80 / 34%), transparent 31%),
-    linear-gradient(135deg, var(--brand-deep-soft) 0%, var(--brand-deep) 55%, var(--brand-deep-dark) 100%);
+    radial-gradient(circle at 82% 10%, rgb(34 197 214 / 50%), transparent 45%),
+    linear-gradient(135deg, #087fc4, #0877b7 65%, #076ba8);
 }
 
 .valuesIntro {
@@ -934,7 +934,7 @@
     padding: 58px 50px;
   }
 
-  .heroCopy h1 { font-size: 64px; }
+  .heroCopy h1 { font-size: 56px; }
   .heroVisual { min-height: 520px; }
   .heroMainImage { height: 420px; }
   .heroPlane { top: 165px; }
@@ -955,7 +955,7 @@
   }
 
   .heroCopy { max-width: 720px; }
-  .heroCopy h1 { max-width: 700px; font-size: 72px; }
+  .heroCopy h1 { max-width: 700px; font-size: 62px; }
   .heroVisual { width: 100%; min-height: 600px; margin-top: 35px; }
   .heroMainImage { right: 2%; width: 68%; }
   .heroCityImage { left: 9%; width: 29%; }
@@ -989,8 +989,8 @@
 
   .heroCopy h1 {
     margin-top: 20px;
-    font-size: clamp(48px, 14.5vw, 63px);
-    line-height: .92;
+    font-size: clamp(40px, 11vw, 52px);
+    line-height: 1.04;
   }
 
   .heroCopy > p {
@@ -1216,7 +1216,7 @@
 
 @media (max-width: 390px) {
   .hero { padding-inline: 20px; }
-  .heroCopy h1 { font-size: 48px; }
+  .heroCopy h1 { font-size: 40px; }
   .heroVisual { min-height: 410px; }
   .heroMainImage { height: 320px; }
   .heroCityImage { height: 150px; }

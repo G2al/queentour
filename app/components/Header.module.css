@@ -3,46 +3,55 @@
   z-index: 100;
   top: 0;
   width: 100%;
-  padding: 12px 0 11px;
-  background: rgb(255 255 255 / 84%);
+  padding: 9px 0;
+  background: rgb(255 252 246 / 90%);
   backdrop-filter: blur(16px);
 }
 
 .inner {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(300px, 1fr);
   align-items: center;
   width: min(calc(100% - 32px), 1560px);
-  min-height: 68px;
+  min-height: 82px;
   margin: 0 auto;
-  padding: 0 17px;
-  border: 1px solid rgb(212 166 80 / 17%);
+  padding: 7px 26px;
+  border: 1px solid rgb(255 255 255 / 70%);
   border-radius: 20px;
-  background: #1d3e45;
-  box-shadow: 0 12px 34px rgb(17 45 51 / 16%);
+  background: linear-gradient(110deg, #0877b7, #087fc4 55%, #0989bb);
+  box-shadow: 0 10px 30px rgb(8 127 196 / 16%);
 }
 
 .logoLink {
+  position: relative;
   display: inline-flex;
   justify-self: start;
   align-items: center;
+  width: 225px;
+  height: 56px;
+  overflow: hidden;
 }
 
 .logo {
   display: block;
-  width: 68px;
+  position: absolute;
+  left: -3%;
+  top: 50%;
+  width: 106%;
+  max-width: none;
   height: auto;
+  transform: translateY(-50%);
 }
 
 .desktopNav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(25px, 2.7vw, 42px);
+  gap: clamp(20px, 2.2vw, 36px);
 }
 
 .headerActions { display: flex; justify-self: end; align-items: center; gap: 10px; }
-.areaLink { padding: 10px 2px; color: #e5c47f; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.areaLink { padding: 10px 2px; color: #fff4cf; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .areaLink:hover { color: #fff; }
 .agencyMenu { display: flex; align-items: center; gap: 7px; }
 .agencyLink { display: flex; max-width: 145px; flex-direction: column; gap: 2px; color: #fff; text-align: right; text-decoration: none; }
@@ -57,7 +66,7 @@
   position: relative;
   padding: 12px 0;
   color: rgb(255 255 255 / 82%);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.015em;
@@ -85,7 +94,7 @@
 }
 
 .navLinkActive {
-  color: #e5c47f;
+  color: #fff1b7;
 }
 
 .contactButton,
@@ -97,8 +106,8 @@
   gap: 9px;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 18%);
-  color: #ffffff;
-  background: linear-gradient(135deg, #d9ae5b 0%, #b8792c 58%, #8f5b20 100%);
+  color: #18334d;
+  background: linear-gradient(135deg, #ffe39a, #f4bc32);
   box-shadow: 0 8px 22px rgb(184 121 44 / 30%);
   cursor: pointer;
   font-family: inherit;
@@ -202,22 +211,34 @@
   display: none;
 }
 
+@media (min-width: 851px) and (max-width: 1120px) {
+  .inner { grid-template-columns: 210px auto 1fr; padding-inline:20px; }
+  .logoLink { width:190px; height:52px; }
+  .desktopNav { gap:18px; }
+  .navLink { font-size:12px; }
+  .contactButton { padding-inline:12px; }
+  .contactIcon { display:none; }
+  .headerActions { gap:8px; }
+  .agencyLink { max-width:100px; }
+}
+
 @media (max-width: 850px) {
   .header {
-    padding: 9px 0;
+    padding: 7px 0;
   }
 
   .inner {
     display: flex;
     justify-content: space-between;
     width: calc(100% - 20px);
-    min-height: 66px;
-    padding: 0 12px;
+    min-height: 72px;
+    padding: 7px 16px;
     border-radius: 18px;
   }
 
-  .logo {
-    width: 58px;
+  .logoLink {
+    width: 180px;
+    height: 48px;
   }
 
   .desktopNav,
@@ -226,7 +247,9 @@
   }
 
   .mobileMenu {
-    display: block;
+    display: flex;
+    align-items:center;
+    gap:12px;
   }
 
   .menuButton {
@@ -241,7 +264,7 @@
     border: 0;
     border-radius: 50%;
     color: #ffffff;
-    background: linear-gradient(145deg, #d4a650, #a56b24);
+    background: #075e94;
     box-shadow: 0 8px 22px rgb(184 121 44 / 30%);
     cursor: pointer;
     transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
@@ -261,7 +284,7 @@
   }
 
   .menuButtonOpen {
-    background: linear-gradient(145deg, #b8792c, #8f5b20);
+    background: #075e94;
     box-shadow: 0 8px 24px rgb(184 121 44 / 42%);
     transform: rotate(90deg);
   }
@@ -293,7 +316,7 @@
     padding: 12px;
     border: 1px solid rgb(212 166 80 / 28%);
     border-radius: 20px;
-    background: #1d3e45;
+    background: linear-gradient(145deg, #087fc4, #076dad);
     box-shadow: 0 18px 45px rgb(17 45 51 / 28%);
     opacity: 0;
     pointer-events: none;
@@ -324,7 +347,7 @@
   }
 
   .mobileLinkActive {
-    color: #e5c47f;
+    color: #fff1b7;
     background: rgb(212 166 80 / 13%);
   }
 
@@ -342,8 +365,10 @@
   .mobileAgency span { color:#e5c47f; font-size:11px; }
 }
 
+@media(min-width:851px) and (max-width:1280px){.logoLink{width:180px}.inner{grid-template-columns:180px auto 1fr;padding-inline:18px}.desktopNav{gap:18px}.headerActions{gap:9px}.headerActions .contactButton{display:none}.agencyLink{max-width:105px}}
+
 @media (max-width: 400px) {
-  .logo {
-    width: 54px;
+  .logoLink {
+    width: 175px;
   }
 }

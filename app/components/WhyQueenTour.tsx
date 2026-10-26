@@ -62,7 +62,7 @@ function BenefitIcon({ name }: { name: string }) {
 
 function BenefitCards() {
   return benefits.map((benefit, index) => (
-    <article className={styles.card} key={benefit.title}>
+    <article className={styles.card} key={benefit.title} data-ocean-card>
       <span className={styles.cardNumber}>0{index + 1}</span>
       <span className={styles.icon}>
         <BenefitIcon name={benefit.icon} />

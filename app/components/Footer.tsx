@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { getLegalPages } from "@/lib/api";
+import { getAgencyToken } from "@/lib/session";
+import type { LegalPage } from "@/lib/booking-types";
 
 const whatsappUrl =
   "https://wa.me/393296430362?text=Ciao%20Queen%20Tour%2C%20vorrei%20ricevere%20maggiori%20informazioni.";
 
-export default function Footer() {
+export default async function Footer() {
+  let legal: LegalPage[] = [];
+  try { legal = await getLegalPages(await getAgencyToken()); } catch { /* I testi saranno comunque richiesti nel checkout. */ }
   return (
     <footer className={styles.footer} id="contatti">
       <div className={styles.content}>
@@ -13,15 +18,15 @@ export default function Footer() {
           <Link href="/" className={styles.logoLink} aria-label="Queen Tour - Home">
             <Image
               className={styles.logo}
-              src="/images/logo-queentour.png"
+              src="/images/logo-queentour-new.png"
               alt="Queen Tour"
-              width={1426}
-              height={1103}
+              width={2172}
+              height={724}
             />
           </Link>
           <p>
             Specialisti dell’Egitto e di Hurghada.<br />
-            Hotel, transfer ed escursioni Solo Land.
+            Hotel, voli, transfer ed escursioni.
           </p>
 
           <div className={styles.socials} aria-label="Social Queen Tour">
@@ -54,7 +59,7 @@ export default function Footer() {
           <h2>Azienda</h2>
           <Link href="/chi-siamo">Chi siamo</Link>
           <Link href="/pacchetti">Egitto</Link>
-          <Link href="/#recensioni">Recensioni</Link>
+          <Link href="/area-agenzie/accedi">Area agenzie</Link>
           <Link href="/contatti">Contatti</Link>
         </nav>
 
@@ -63,15 +68,14 @@ export default function Footer() {
           <Link href="/pacchetti">Hotel a Hurghada</Link>
           <Link href="/pacchetti">Trasferimenti</Link>
           <Link href="/pacchetti">Escursioni</Link>
-          <Link href="/#come-funziona">Formula Solo Land</Link>
+          <Link href="/#come-funziona">Come funziona</Link>
         </nav>
 
         <div className={styles.column}>
           <h2>Link utili</h2>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">Assistenza WhatsApp</a>
           <a href="tel:+393296430362">+39 329 643 0362</a>
-          <span>Termini e condizioni</span>
-          <span>Privacy policy</span>
+          {legal.map((page) => <Link href={`/condizioni/${page.slug}`} key={page.id}>{page.title}</Link>)}
         </div>
       </div>
 

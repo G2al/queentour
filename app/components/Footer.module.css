@@ -1,12 +1,16 @@
 .footer {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
   width: calc(100% - 32px);
   margin: 0 auto 16px;
   padding: 78px clamp(35px, 6vw, 98px) 0;
   scroll-margin-top: 30px;
   border-radius: 28px;
   color: #fff;
-  background: #1d3e45;
+  background: radial-gradient(ellipse at 95% 0%, rgb(34 197 214 / 35%), transparent 48%), linear-gradient(120deg, #076fab, #087fc4);
 }
+.footer::before { position:absolute; z-index:-1; right:-150px; bottom:-380px; width:700px; height:700px; border:1px solid rgb(255 255 255 / 14%); border-radius:50%; box-shadow:0 0 0 60px rgb(255 255 255 / 3%),0 0 0 120px rgb(255 255 255 / 3%); content:""; }
 
 .content {
   display: grid;
@@ -27,13 +31,14 @@
 
 .logo {
   display: block;
-  width: 132px;
+  width: 250px;
+  max-width: 100%;
   height: auto;
 }
 
 .brand p {
   margin: 20px 0 0;
-  color: rgb(255 255 255 / 64%);
+  color: rgb(255 255 255 / 88%);
   font-size: 13px;
   line-height: 1.65;
 }
@@ -51,7 +56,7 @@
   height: 31px;
   place-items: center;
   border-radius: 50%;
-  color: #e5c47f;
+  color: #fff2bf;
   background: rgb(255 255 255 / 8%);
   box-shadow: 0 6px 15px rgb(17 45 51 / 18%);
   cursor: pointer;
@@ -60,14 +65,14 @@
 
 .socials > span:hover {
   color: #ffffff;
-  background: #b8792c;
+  background: #075e94;
   box-shadow: 0 9px 20px rgb(184 121 44 / 24%);
   transform: translateY(-2px);
 }
 
 .socials .facebook {
   color: #ffffff;
-  background: #b8792c;
+  background: #075e94;
   box-shadow: 0 7px 16px rgb(184 121 44 / 24%);
 }
 
@@ -108,7 +113,7 @@
 .column a,
 .column > span {
   margin-bottom: 14px;
-  color: rgb(255 255 255 / 62%);
+  color: rgb(255 255 255 / 88%);
   font-size: 12px;
   line-height: 1.35;
   text-decoration: none;
@@ -150,7 +155,7 @@
   min-height: 68px;
   margin: 0 auto;
   border-top: 1px solid rgb(255 255 255 / 11%);
-  color: rgb(255 255 255 / 42%);
+  color: rgb(255 255 255 / 78%);
   font-size: 10px;
 }
 
@@ -198,7 +203,7 @@
   }
 
   .logo {
-    width: 118px;
+    width: 225px;
   }
 
   .column:last-child {
